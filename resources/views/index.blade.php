@@ -7,9 +7,10 @@
             <div class="card">
 
                 <div class="card-body">
-                    <p class="split day" style="color:red;">プレゼント・デイ</p>
-                    <p class="split time" style="color:red;">プレゼント・タイム</p>
+                    <p class="typewriter day" style="color:red;">プレゼント・デイ</p>
+                    <p class="typewriter time" style="color:red;">プレゼント・タイム</p>
                 </div>
+
             </div>
         </div>
     </div>
