@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/corp', function () {
+    return view('corp');
+});
 
 Route::get('/twitter', 'TwitterController@index');
 
