@@ -23,24 +23,34 @@
   white-space: nowrap;
   overflow: hidden;
 }
-.card-body p:nth-child(1) {
+.card-body p.day {
   width: 9.3em;
-  // -webkit-animation: type 2s steps(8, end);
-  animation: type 2s steps(8, end);
-  // -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+  opacity: 0;
+  animation: typing-day 3s steps(8, 66.6%);
+  animation-fill-mode: none;
 }
 
-.card-body p:nth-child(2) {
+.card-body p.time {
   width: 10.6em;
   opacity: 0;
-  // -webkit-animation: type2 2s steps(9, end);
-  animation: type2 2s steps(9, end);
-  // -webkit-animation-delay: 3s;
-  animation-delay: 3s;
-  // -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+  animation: typing-time 3.5s steps(14, end);
+  animation-delay: 4s;
+  animation-fill-mode: none;
 }
+
+.typewriter {
+  // overflow: hidden; /* Ensures the content is not revealed until the animation */
+  // border-right: .15em solid red; /* The typwriter cursor */
+  // white-space: nowrap; /* Keeps the content on a single line */
+  // margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  // letter-spacing: .15em; /* Adjust as needed */
+  // animation: 
+  //   typing 3.5s steps(40, end),
+  //   blink-caret .75s step-end infinite;
+  // animation-fill-mode: forwards;
+
+}
+
 
 @keyframes type {
   0% {
@@ -63,10 +73,11 @@
     opacity: 1;
   }
   99.9% {
+    opacity: 1;
     border-right: .15em solid red;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
     border: none;
   }
 }
@@ -77,26 +88,36 @@
   }
 }
 
-
-
-.typewriter {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid red; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-  animation-fill-mode: forwards;
-
-}
-
 /* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+@keyframes typing-day {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  66.6% { width: 9.3em }
+  99.9% {
+    width: 9.3em;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
+@keyframes typing-time {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  64.2% { width: 10.6em }
+  99.9% {
+    width: 10.6em;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
