@@ -7,8 +7,12 @@
             <div class="card">
 
                 <div class="card-body">
-                    <p class="typewriter day" style="color:red;">プレゼント・デイ</p>
-                    <p class="typewriter time" style="color:red;">プレゼント・タイム</p>
+                    <div class="day-wrap">
+                        <p class="day">プレゼント・デイ</p>
+                    </div>
+                    <div class="time-wrap">
+                        <p class="time">プレゼント・タイム</p>
+                    </div>
                 </div>
 
             </div>

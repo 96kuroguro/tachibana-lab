@@ -10001,146 +10001,136 @@ a.text-dark:focus {
 }
 
 .card-body p {
-  border-right: .15em solid red;
-  font-family: "Courier";
-  font-size: 14px;
+  border-right: .1em solid red;
+  font-family: "Noto Sans Japanese", "Courier";
+  font-size: 3rem;
+  color: red;
   white-space: nowrap;
   overflow: hidden;
+  letter-spacing: .05em;
 }
 
-.card-body p:nth-child(1) {
-  width: 9.3em;
-  -webkit-animation: type 2s steps(8, end);
-          animation: type 2s steps(8, end);
+.card-body p.day {
+  width: 8.45em;
+  opacity: 0;
+  -webkit-animation: typing-day 2s steps(8, end);
+          animation: typing-day 2s steps(8, end);
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
-.card-body p:nth-child(2) {
-  width: 10.6em;
+.card-body p.time {
+  width: 9.5em;
   opacity: 0;
-  -webkit-animation: type2 2s steps(9, end);
-          animation: type2 2s steps(9, end);
+  -webkit-animation: typing-time 2s steps(9, end);
+          animation: typing-time 2s steps(9, end);
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.card-body .day-wrap {
+  -webkit-animation: day-wrap 0.1s steps(1, end);
+          animation: day-wrap 0.1s steps(1, end);
   -webkit-animation-delay: 3s;
           animation-delay: 3s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
-@-webkit-keyframes type {
-  0% {
-    width: 0;
-  }
-
-  99.9% {
-    border-right: .15em solid red;
-  }
-
-  100% {
-    border: none;
-  }
-}
-
-@keyframes type {
-  0% {
-    width: 0;
-  }
-
-  99.9% {
-    border-right: .15em solid red;
-  }
-
-  100% {
-    border: none;
-  }
-}
-
-@-webkit-keyframes type2 {
-  0% {
-    width: 0;
-  }
-
-  1% {
-    opacity: 1;
-  }
-
-  99.9% {
-    border-right: .15em solid red;
-  }
-
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@keyframes type2 {
-  0% {
-    width: 0;
-  }
-
-  1% {
-    opacity: 1;
-  }
-
-  99.9% {
-    border-right: .15em solid red;
-  }
-
-  100% {
-    opacity: 1;
-    border: none;
-  }
-}
-
-@-webkit-keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-.typewriter {
-  overflow: hidden;
-  /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid red;
-  /* The typwriter cursor */
-  white-space: nowrap;
-  /* Keeps the content on a single line */
-  margin: 0 auto;
-  /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em;
-  /* Adjust as needed */
-  -webkit-animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-          animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+.card-body .time-wrap {
+  -webkit-animation: time-wrap 0.1s steps(1, end);
+          animation: time-wrap 0.1s steps(1, end);
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
 /* The typing effect */
 
-@-webkit-keyframes typing {
-  from {
+@-webkit-keyframes typing-day {
+  0% {
     width: 0;
+    opacity: 1;
   }
 
-  to {
-    width: 100%;
+  100% {
+    opacity: 1;
   }
 }
 
-@keyframes typing {
-  from {
+@keyframes typing-day {
+  0% {
     width: 0;
+    opacity: 1;
   }
 
-  to {
-    width: 100%;
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes day-wrap {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes day-wrap {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes typing-time {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes typing-time {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes time-wrap {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes time-wrap {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
