@@ -13,42 +13,102 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+html{
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-image: url(../img/common/noise_bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: 
+      bg-start .1s 2s step-start forwards,
+      bg-end .1s 13s step-end forwards;
+  }
+#app {
+  background-image: radial-gradient(transparent , black  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+    height: 100%;
+    animation: 
+    bg-mask-start .1s 2s step-start forwards,
+    bg-mask-end .1s 13s step-end forwards;
+}
 
-
-
-.card-body p {
+.day,
+.time {
   border-right: .1em solid red;
   font-family: "Noto Sans Japanese", "Courier";
-  font-size: 3rem;
+  font-size: 7vw;
   color:red;
   white-space: nowrap;
   overflow: hidden;
   letter-spacing: .05em;
+
+  @include media-breakpoint-up(md) {
+    font-size: 2rem;
+  }
 }
-.card-body p.day {
+
+.day {
   width: 8.45em;
   opacity: 0;
   animation: typing-day 2s steps(8, end);
+  animation-delay: 3s;
   animation-fill-mode: forwards;
+
+  position: absolute;
+  bottom: 50%;
+  left: 10%;
 }
-.card-body p.time {
+.time {
   width: 9.5em;
   opacity: 0;
   animation: typing-time 2s steps(9, end);
-  animation-delay: 4s;
+  animation-delay: 7s;
   animation-fill-mode: forwards;
+  position: absolute;
+  bottom: 10%;
+  left: 30%;
+  @include media-breakpoint-up(md) {
+    left: 60%;
+  }
+
 }
-.card-body .day-wrap {
+.day-wrap {
   animation: day-wrap .1s steps(1, end);
-  animation-delay: 3s;
+  animation-delay: 6s;
   animation-fill-mode: forwards;
 }
-.card-body .time-wrap {
+.time-wrap {
   animation: time-wrap .1s steps(1, end);
-  animation-delay: 8s;
+  animation-delay: 11s;
   animation-fill-mode: forwards;
 }
 
+@keyframes bg-start {
+  100% {
+    background-image: none;
+  }
+}
+@keyframes bg-end {
+  100% {
+    background-image: url(../img/common/noise_bg.jpg);
+  }
+}
+@keyframes bg-mask-start {
+  100% {
+    background-image: none;
+  }
+}
+@keyframes bg-mask-end {
+  100% {
+    background-image: radial-gradient(transparent , black  );
+  }
+}
 
 /* The typing effect */
 @keyframes typing-day {
