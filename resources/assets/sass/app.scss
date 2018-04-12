@@ -24,7 +24,7 @@ body {
     background-attachment: fixed;
     animation: 
       bg-start .1s 2s step-start forwards,
-      bg-end .1s 13s step-end forwards;
+      bg-end .1s 12s step-end forwards;
   }
 #app {
   background-image: radial-gradient(transparent , black  );
@@ -35,7 +35,7 @@ body {
     height: 100%;
     animation: 
     bg-mask-start .1s 2s step-start forwards,
-    bg-mask-end .1s 13s step-end forwards;
+    bg-mask-end .1s 12s step-end forwards;
 }
 
 .day,
