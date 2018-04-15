@@ -141,3 +141,18 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+
+.starimg {
+  background: url(../img/common/starimg-bg.jpg);
+  background-size: cover;
+
+  > div {
+    background: url(../img/common/icon-glow.png);
+    background-size: contain;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    
+  }
+
+}
