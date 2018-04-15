@@ -13,4 +13,5 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
 .sass('resources/assets/sass/corp.scss', 'public/css')
+.sass('resources/assets/sass/twitter.scss', 'public/css')
 .sass('resources/assets/sass/app.scss', 'public/css');

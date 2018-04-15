@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', 'プレゼント・デイ プレゼント・タイム')
+
 @section('content')
 <div class="container">
     <div class="day-wrap">

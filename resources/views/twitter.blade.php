@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.twitter')
+
+@section('title', '玲音とレインとlainとれいん')
 
 @section('content')
 <div class="container">
