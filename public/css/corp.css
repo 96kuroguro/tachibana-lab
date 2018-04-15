@@ -10167,3 +10167,53 @@ h6 {
   background-repeat: no-repeat;
 }
 
+@media (min-width: 768px) {
+  #navi .card img,
+  #handnavi .card img {
+    width: 120px;
+  }
+}
+
+@media (min-width: 992px) {
+  #navi .card img,
+  #handnavi .card img {
+    width: 200px;
+  }
+}
+
+.connect-wired {
+  display: inline-block;
+  width: 122px;
+  height: 13px;
+}
+
+.connect-wired img {
+  vertical-align: text-top;
+}
+
+.connect-wired:hover {
+  background: url(/images/connect-wired.png?7ea9074075957a6208c7986c9a466822);
+}
+
+.connect-wired:hover img {
+  display: none;
+}
+
+.club-cyberia {
+  display: inline-block;
+  width: 110px;
+  height: 15px;
+}
+
+.club-cyberia img {
+  vertical-align: text-top;
+}
+
+.club-cyberia:hover {
+  background: url(/images/club-cyberia.png?7f26f3b0425667710c20a1a9ed620d85);
+}
+
+.club-cyberia:hover img {
+  display: none;
+}
+

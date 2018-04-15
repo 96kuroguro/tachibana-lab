@@ -10251,3 +10251,30 @@ body {
   }
 }
 
+.enter {
+  opacity: 0;
+  -webkit-animation: enter 0.1s steps(1, end);
+          animation: enter 0.1s steps(1, end);
+  -webkit-animation-delay: 14s;
+          animation-delay: 14s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
+}
+
+@-webkit-keyframes enter {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes enter {
+  100% {
+    opacity: 1;
+  }
+}
+
