@@ -6,3 +6,5 @@
  */
 
 require('./bootstrap');
+
+window.Autolinker = require( 'autolinker' );

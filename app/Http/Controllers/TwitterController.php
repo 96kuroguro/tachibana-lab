@@ -22,15 +22,15 @@ class TwitterController extends Controller
         $tweets = [];
 
         //serial experiments lain
-        $statuses = $connection->get("search/tweets", ["count" => 100, "q" => "'serial experiments lain' OR 'serialexperimentslain' -rt"]);
+        $statuses = $connection->get("search/tweets", ["count" => 50, "q" => "'serial experiments lain' OR 'serialexperimentslain' -rt"]);
         $datas['lain'] = $statuses->statuses;
 
         //クラブサイベリア
-        $statuses = $connection->get("search/tweets", ["count" => 100, "q" => "クラブサイベリア -rt"]);
+        $statuses = $connection->get("search/tweets", ["count" => 50, "q" => "クラブサイベリア -rt"]);
         $datas['cyberia'] = $statuses->statuses;
 
         //絵ツイート
-        $statuses = $connection->get("search/tweets", ["count" => 100, "q" => "'serial experiments lain' OR 'serialexperimentslain' OR クラブサイベリア -rt filter:images"]);
+        $statuses = $connection->get("search/tweets", ["count" => 50, "q" => "'serial experiments lain' OR 'serialexperimentslain' OR クラブサイベリア -rt filter:images"]);
         $datas['arts'] = $statuses->statuses;
 
         //bot
