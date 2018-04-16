@@ -21,23 +21,33 @@ class TwitterController extends Controller
 
         $tweets = [];
 
+        //serial experiments lain
+        $statuses = $connection->get("search/tweets", ["count" => 100, "q" => "'serial experiments lain' OR 'serialexperimentslain' -rt"]);
+        $datas['lain'] = $statuses->statuses;
+
+        //クラブサイベリア
         $statuses = $connection->get("search/tweets", ["count" => 100, "q" => "クラブサイベリア -rt"]);
-        $search = $statuses->statuses;
+        $datas['cyberia'] = $statuses->statuses;
 
-        $statuses = $connection->get("statuses/user_timeline", ["count" => 3, "screen_name" => "se_lain_bot"]);
-        $bot = $statuses;
+        //絵ツイート
+        $statuses = $connection->get("search/tweets", ["count" => 100, "q" => "'serial experiments lain' OR 'serialexperimentslain' OR クラブサイベリア -rt filter:images"]);
+        $datas['arts'] = $statuses->statuses;
 
-        $tweets = array_merge($search, $bot);
+        //bot
+        $statuses = $connection->get("statuses/user_timeline", ["count" => 3, "screen_name" => "se_lain_bot OR ps_lain_bot OR ps_touko_bot"]);
+        $datas['bot'] = $statuses;
 
-        $tweets = json_decode(json_encode($tweets), true);
-        foreach($tweets as $key => $value)
-        {
-            $id[$key] = $value['id'];
-        }
-        array_multisort($id, SORT_DESC, SORT_REGULAR, $tweets);
+        // $tweets = array_merge($search, $bot);
+
+        // $tweets = json_decode(json_encode($tweets), true);
+        // foreach($tweets as $key => $value)
+        // {
+        //     $id[$key] = $value['id'];
+        // }
+        // array_multisort($id, SORT_DESC, SORT_REGULAR, $tweets);
 
 
-        return view('twitter', ['tweets' => $tweets]);
+        return view('twitter', $datas);
     }
 
 }

@@ -6,31 +6,71 @@
 <div class="container">
     <div class="row justify-content-center">
 
-    @php
-        $i = 0;
-    @endphp
-    @foreach($tweets as $tweet)
-        @if($i%3 == 0)
-        <div class="card-deck mb-3">
-        @endif
-            <div class="card{{ $tweet['user']['screen_name'] == "se_lain_bot" ? " bg-warning": null }}">
+<div class="col-md-4">
+    @foreach($lain as $tweet)
+    <div class="card mb-2">
+            @if(isset($tweet->extended_entities))
+                            @foreach($tweet->extended_entities->media as $media)
+                            <img src="{{$media->media_url}}" class="card-img-top">
+                            @endforeach
+                        @endif
                 <div class="card-body row">
                     <div class="col-2">
-                        <img class="rounded-circle" src="{{ $tweet['user']['profile_image_url'] }}" alt="Card image cap">
+                        <img class="rounded-circle" src="{{ $tweet->user->profile_image_url }}" alt="Card image cap">
                     </div>
                     <div class="col-10">
-                        {{ $tweet['text'] }}
-                        {{ $tweet['created_at'] }}
+                        {{ $tweet->text }}
+                        <br>
+                        {{ date('Y/m/d H:i', strtotime($tweet->created_at)) }}
                     </div>
                 </div>
             </div>
-        @if($i%3 == 2)
-        </div>
-        @endif
-    @php
-        $i++;
-    @endphp
     @endforeach
+</div>
+
+<div class="col-md-4">
+    @foreach($cyberia as $tweet)
+    <div class="card mb-2">
+            @if(isset($tweet->extended_entities))
+                            @foreach($tweet->extended_entities->media as $media)
+                            <img src="{{$media->media_url}}" class="card-img-top">
+                            @endforeach
+                        @endif
+                <div class="card-body row">
+                    <div class="col-2">
+                        <img class="rounded-circle" src="{{ $tweet->user->profile_image_url }}" alt="Card image cap">
+                    </div>
+                    <div class="col-10">
+                        {{ $tweet->text }}
+                        <br>
+                        {{ date('Y/m/d H:i', strtotime($tweet->created_at)) }}
+                    </div>
+                </div>
+            </div>
+    @endforeach
+</div>
+
+<div class="col-md-4">
+    @foreach($arts as $tweet)
+            <div class="card mb-2">
+            @if(isset($tweet->extended_entities))
+                            @foreach($tweet->extended_entities->media as $media)
+                            <img src="{{$media->media_url}}" class="card-img-top">
+                            @endforeach
+                        @endif
+                <div class="card-body row">
+                    <div class="col-2">
+                        <img class="rounded-circle" src="{{ $tweet->user->profile_image_url }}" alt="Card image cap">
+                    </div>
+                    <div class="col-10">
+                        {{ $tweet->text }}
+                        <br>
+                        {{ date('Y/m/d H:i', strtotime($tweet->created_at)) }}
+                    </div>
+                </div>
+            </div>
+    @endforeach
+</div>
 
     </div>
 </div>
