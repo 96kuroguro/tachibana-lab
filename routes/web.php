@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/twitter', 'TwitterController@index');
+Route::get('/wired', 'MediaController@index');
 
 Auth::routes();
 
