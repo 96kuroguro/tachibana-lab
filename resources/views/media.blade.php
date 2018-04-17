@@ -40,15 +40,20 @@ var entries = [
         height: '{{ $media->sizes->small->h / 5 }}', 
         url: '{{ $media->expanded_url }}', 
         target: '_top',
-        tooltip: '{{ $tweet->user->name }}'
-         },
-   @endif
-   { label: '{{ $words[$i]['text'] }}', url: '{{ $words[$i]['url'] }}', target: '_top' },
+        tooltip: '{{ "@".$tweet->user->screen_name }}'
+    },
+    @endif
+    { 
+        label: '{{ mb_strimwidth(str_replace(array("\r", "\n"), '\n', $words[$i]->text), 0, 40, "...") }}', 
+        url: 'https://twitter.com/{{ $words[$i]->user->screen_name }}/status/{{ $words[$i]->id_str }}', 
+        target: '_top',
+        tooltip: '{{ "@".$tweet->user->screen_name }}' 
+    },
    @php
    $i++;
    @endphp
    @endforeach
-
+   { label: 'HOME', url: 'https://tachibana-lab.bacronym.net/', target: '_top' },
 ];
 
 var settings = {
@@ -64,7 +69,7 @@ var settings = {
     opacityOut: 0.05,
     opacitySpeed: 6,
     fov: 800,
-    speed: 0.2,
+    speed: 0.3,
     fontFamily: 'Oswald, Arial, sans-serif',
     fontSize: '15',
     fontColor: '#fff',
@@ -78,10 +83,10 @@ var settings = {
     tooltipFontWeight: 'normal',//bold
     tooltipFontStyle: 'normal',//italic 
     tooltipFontStretch: 'normal',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
-    tooltipFontToUpperCase: false,
+    tooltipFontToUpperCase: true,
     tooltipTextAnchor: 'left',
     tooltipDiffX: 0,
-    tooltipDiffY: 10
+    tooltipDiffY: 15
 
 };
 $( '#holder' ).svg3DTagCloud( settings );

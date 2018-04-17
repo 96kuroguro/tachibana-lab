@@ -5,6 +5,14 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <a href="/">
+                HOME
+            </a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
 
 
 <div class="col-md-4">

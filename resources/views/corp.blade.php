@@ -110,6 +110,11 @@
             <h2 class="blog-post-title">WIRED</h2>
 
             <p><a href="/op" class="connect-wired"><img src="{{ asset('../img/text/connect-wired-hover.png') }}" alt="connect wired"></a></p>
+
+            <ul>
+            <li><a href="/twitter">wired ver.1</a></li>
+            <li><a href="/wired">wired ver.2</a></li>
+            </ul>
           </div><!-- /.blog-post -->
 
           <div class="blog-post">
