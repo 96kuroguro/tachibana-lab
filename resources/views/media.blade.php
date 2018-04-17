@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>wiredに遍在するGraphic</title>
+    <title>wiredに遍在する記録</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
