@@ -27,7 +27,8 @@
           <div class="col-8 text-center">
             <a class="blog-header-logo text-dark" href="#">
             橘総合研究所
-            </a>
+            </a><br>
+            Tachibana-Lab
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
             <!-- <a class="text-muted" href="#">
