@@ -19,20 +19,34 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/twitter.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/wired.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="holder"></div>
 <script src='{{ asset('js/plugins/jquery.svg3dtagcloud.min.js') }}'></script>
 <script>
 var entries = [ 
+   @php
+   $i=0;
+   @endphp
    @foreach($medias as $tweet)
    @if(isset($tweet->extended_entities))
    @php
    $media = $tweet->extended_entities->media[0];
    @endphp
-    { image: '{{ $media->media_url_https }}', width: '{{ $media->sizes->small->w / 3 }}', height: '{{ $media->sizes->small->h / 3 }}', url: '{{ $media->expanded_url }}', target: '_top' },
+    { 
+        image: '{{ $media->media_url_https }}', 
+        width: '{{ $media->sizes->small->w / 5 }}', 
+        height: '{{ $media->sizes->small->h / 5 }}', 
+        url: '{{ $media->expanded_url }}', 
+        target: '_top',
+        tooltip: '{{ $tweet->user->name }}'
+         },
    @endif
+   { label: '{{ $words[$i]['text'] }}', url: '{{ $words[$i]['url'] }}', target: '_top' },
+   @php
+   $i++;
+   @endphp
    @endforeach
 
 ];
@@ -40,17 +54,17 @@ var entries = [
 var settings = {
 
     entries: entries,
-    width: '100%',
-    height: '100%',
-    radius: '65%',
+    width: window.parent.screen.width,
+    height: window.parent.screen.height,
+    radius: '100%',
     radiusMin: 75,
-    bgDraw: true,
+    bgDraw: false,
     bgColor: '#111',
     opacityOver: 1.00,
     opacityOut: 0.05,
     opacitySpeed: 6,
     fov: 800,
-    speed: 0.5,
+    speed: 0.2,
     fontFamily: 'Oswald, Arial, sans-serif',
     fontSize: '15',
     fontColor: '#fff',
