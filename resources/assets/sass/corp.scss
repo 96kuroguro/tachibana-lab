@@ -11,6 +11,18 @@
 
 /* stylelint-disable selector-list-comma-newline-after */
 
+@font-face {
+  // font-family: wf_7163b692e71c48c2b052b405b;
+  font-family: lain-font;
+  src: url("https://static.wixstatic.com/ufonts/158e2d_7163b692e71c48c2b052b405b36e5731/woff/file.woff") format("woff"),
+  url("https://static.wixstatic.com/ufonts/158e2d_7163b692e71c48c2b052b405b36e5731/woff2/file.woff2") format("woff2"),
+  url("https://static.wixstatic.com/ufonts/158e2d_7163b692e71c48c2b052b405b36e5731/ttf/file.ttf") format("ttf");
+}
+
+.lain-font {
+  font-family: lain-font;
+}
+
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
