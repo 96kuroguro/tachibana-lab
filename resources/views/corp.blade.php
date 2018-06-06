@@ -42,7 +42,7 @@
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
           <a class="p-2" href="#navi">NAVI</a>
-          <a class="p-2" href="#handnavi">Hand NAVI</a>
+          <a class="p-2" href="#handnavi">Handy NAVI</a>
           <a class="p-2" href="#os">Copland OS</a>
           <a class="p-2 text-muted" href="" style="pointer-events: none;">Processors</a>
           <a class="p-2 text-muted" href="" style="pointer-events: none;">Boards</a>
@@ -76,7 +76,7 @@
               </h3>
               <div class="mb-1 text-muted">v4.2 エンタープライズ版</div>
               <p class="card-text mb-auto">7月7日に販売決定したCopland OSの最新版。
-              ワイヤードへのリアルタイムレンダリングで全身投影もストレスフリーで実現可能</p>
+              ワイヤードへのメタファライズで全身投影もストレスフリーで実現可能</p>
               
               <a href="" style="pointer-events: none;">製品詳細はこちら</a>
             </div>
@@ -86,7 +86,7 @@
         <div class="col-md-6" id="handnavi">
           <div class="card flex-md-row mb-4 box-shadow h-lg-250">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Hand NAVI</strong>
+              <strong class="d-inline-block mb-2 text-success">Handy NAVI</strong>
               <h3 class="mb-0">
                 <a class="text-dark" href="#">Copland OS</a>
               </h3>
@@ -110,7 +110,7 @@
           <div class="blog-post">
             <h2 class="blog-post-title">WIRED</h2>
 
-            <p><a href="/op" class="connect-wired"><img src="{{ asset('../img/text/connect-wired-hover.png') }}" alt="connect wired"></a></p>
+            <p><a href="/op" class="lain-font">connect wired</a></p>
 
             <ul>
             <li><a href="/twitter">wired ver.1</a></li>
@@ -122,7 +122,7 @@
             <h2 class="blog-post-title">新製品発表</h2>
             <p class="blog-post-meta">April 16 by <a href="#" style="pointer-events: none;">英利 政美 主任研究員</a></p>
 
-            <p>3年前に発表されたCopland OSは人類をワイヤードという次元に接続させるインターフェイスとして偏在するまでに至った。今回の新しいバージョンでは、ワイヤードとリアルワールドの境界を限りなくゼロに近いものにしている。既にワイヤードは、リアルワールドの上位階層になりつつあり、そのワイヤードで＄＆＄％＆’＄管理すｊ＆（・。在とし）’・＋＃％＋＊｛｜”％//・辞めてやる辞めてやるこんな会社ヤメテやr</p>
+            <p>3年前に発表されたCopland OSは人類をワイヤードという次元に接続させるインターフェイスとして偏在するまでに至った。今回の新しいバージョンでは、ワイヤードとリアルワールドの境界を限りなくゼロに近いものにしている。既にワイヤードは、リアルワールドの上位階層になりつつあり、そのワイヤードで＄＆＄％＆’＄管理すｊ＆（・。在とし）’・＋＃％＋＊｛｜”％//・辞めてやる辞めてやるこの僕にあんな事をさせるなんてこんな会社ヤメテやr</p>
           </div><!-- /.blog-post -->
 
         </div><!-- /.blog-main -->
@@ -138,8 +138,8 @@
 
           <div class="p-3">
             <h4 class="font-italic">Event Link</h4>
-            <ol class="list-unstyled">
-              <li><a href="https://mousou0322.wixsite.com/club-cyberia" class="club-cyberia" target="_blank"><img src="{{ asset('../img/text/club-cyberia-hover.png') }}" alt="club cyberia"></a><br>
+            <p class="lain-font">
+              <a href="https://mousou0322.wixsite.com/club-cyberia" target="_blank">CLUB CYBERIA</a><br>
             <br>
             Present　Day<br>
 2018/07/07（sat）<br>
@@ -147,8 +147,7 @@
 Present　Time<br>
 OPEN　13：00　START　13：30<br>
 CLOSE　21：00
-</li>
-            </ol>
+            </p>
           </div>
         </aside><!-- /.blog-sidebar -->
 
