@@ -21,6 +21,9 @@ Route::get('/', function () {
 Route::get('/twitter', 'TwitterController@index');
 Route::get('/wired', 'MediaController@index');
 
+Route::get('/afteroffparty', 'AfterOffPartyController@index');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

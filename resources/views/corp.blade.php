@@ -39,21 +39,7 @@
         </div>
       </header>
 
-      <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-          <a class="p-2" href="#navi">NAVI</a>
-          <a class="p-2" href="#handnavi">Handy NAVI</a>
-          <a class="p-2" href="#os">Copland OS</a>
-          <a class="p-2 text-muted" href="" style="pointer-events: none;">Processors</a>
-          <a class="p-2 text-muted" href="" style="pointer-events: none;">Boards</a>
-          <a class="p-2 text-muted" href="" style="pointer-events: none;">Memory</a>
-          <a class="p-2" href="/op">WIRED</a>
-          <a class="p-2 text-muted" href="" style="pointer-events: none;">Support</a>
-          <a class="p-2" href="#aboutus">About Us</a>
-          <a class="p-2 text-muted" href="" style="pointer-events: none;">Contact Us</a>
-          <a class="p-2 text-muted" href="" style="pointer-events: none;">Shopping</a>
-        </nav>
-      </div>
+      @include('include.menu')
 
       <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark starimg" id="os">
         <div>
@@ -127,29 +113,7 @@
 
         </div><!-- /.blog-main -->
 
-        <aside class="col-md-4 blog-sidebar">
-          <div class="p-3 mb-3 bg-light rounded" id="aboutus">
-            <h4 class="font-italic">About Us</h4>
-            <p class="mb-0">橘総研＜Tachibana-Lab＞<br>
-            次世代OSであるCopland OSの開発を始め、ワイヤードとリアルワールドを接続し、ユビキタス社会を作り出すことを目指します。
-          </p>
-          </div>
-
-
-          <div class="p-3">
-            <h4 class="font-italic">Event Link</h4>
-            <p class="lain-font">
-              <a href="https://mousou0322.wixsite.com/club-cyberia" target="_blank">CLUB CYBERIA</a><br>
-            <br>
-            Present　Day<br>
-2018/07/07（sat）<br>
-<br>
-Present　Time<br>
-OPEN　13：00　START　13：30<br>
-CLOSE　21：00
-            </p>
-          </div>
-        </aside><!-- /.blog-sidebar -->
+@include('include.sidebar')
 
       </div><!-- /.row -->
 
