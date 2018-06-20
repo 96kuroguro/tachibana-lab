@@ -99,7 +99,7 @@
               Part 2　open 13:30　/ close 16:00<br>
               <br>
               <span class="font-weight-bold text-danger">place : </span><br>
-              恵比寿 <a href="https://na-na-q.com/contact/">SAKEビストロ NA-NA</a><br>
+              恵比寿 <a href="https://na-na-q.com/contact/">SAKEビストロ NA-NA</a> <a href="https://goo.gl/maps/dcjYWTJqqb32">地図を表示</a><br>
               ※スペースだけをお借りしているので、食事やお酒などお店からの提供はありません。<br>
               <br>
               <span class="font-weight-bold text-danger">price : </span><br>
