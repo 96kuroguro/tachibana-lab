@@ -94,6 +94,17 @@
           </h3>
 
           <div class="blog-post">
+            <h2 class="blog-post-title">7/8 アフターオフ会のご案内</h2>
+
+            <p>
+            7/8（日）にクラブサイベリア　アフターオフ会を開催します。<br>
+            <br>
+            <a href="{{url('afteroffparty')}}" class="btn btn-info">詳細はこちら</a>
+            </p>
+
+          </div><!-- /.blog-post -->
+
+          <div class="blog-post">
             <h2 class="blog-post-title">WIRED</h2>
 
             <ul class="lain-font">
