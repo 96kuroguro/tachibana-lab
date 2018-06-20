@@ -16,6 +16,13 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/corp.css') }}" rel="stylesheet">
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@96kuroguro" />
+        <meta property="og:url" content="{{url('afteroffparty')}}" />
+        <meta property="og:title" content="クラブサイベリア layer02:アフターオフ会" />
+        <meta property="og:description" content="serial experiments lain 20周年を記念して、lain好きが集まってお話をするオフ会です。参加条件はlainが好きなことだけ。" />
+        <meta property="og:image" content="{{ asset('img/common/afteroff-eyecatch.jpg') }}" />
     </head>
     <body>
     <div class="container">
@@ -54,6 +61,8 @@
             <p class="blog-post-meta">June 21 by <a href="https://twitter.com/96kuroguro">くろぐろ臨時研究員 オフ会幹事担当</a></p>
 
             <p>
+              <img src="{{ asset('img/common/afteroff-eyecatch.jpg') }}" class="img-fluid"><br>
+              <br>
               serial experiments lain 20周年を記念して、lain好きが集まってお話をするオフ会です。<br>
               <br>
               参加条件は<b class="text-danger">lainが好きなことだけ。</b><br>
@@ -71,12 +80,15 @@
               ただし、お酒を持ち込む際は、ご自身はもちろん、周りの方の飲み過ぎにもご配慮ください。<br>
               余った場合の持ち帰りにもご協力お願いします。<br>
               <br>
+              {{--
               会場の個室を更衣室として使うことも可能ですので、<b class="text-danger">コスプレ希望の方は備考欄にご記入ください。</b><br>
               <br>
               当日参加枠も可能であれば用意しますが、混み状況によっては入場できない場合もあります。<br>
               当日参加希望の方は必ず申し込みをして、返信が来てからご来場ください。<br>
+              --}}
             </p>
             <br>
+            {{--
             <div class="progress">
               <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
@@ -117,6 +129,13 @@
               <span class="text-danger">※ただいま、事前申し込みされた方へアンケートを取っております。<br>
               結果により追加でご参加いただける人数が変動しますのでしばらくお待ち下さい。</span><br>
               <a href="" class="btn btn-info btn-block btn-lg disabled">参加申込みはこちら</a><br>
+              --}}
+
+              <p>
+              ただいま申込みの準備しています。<br>
+              <br>
+              あと・・少し、待って
+              </p>
 
           </div><!-- /.blog-post -->
 
