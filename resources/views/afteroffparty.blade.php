@@ -58,7 +58,7 @@
 
           <div class="blog-post">
           <h2 class="blog-post-title">クラブサイベリア アフターオフ会</h2>
-            <p class="blog-post-meta">June 21 by <a href="https://twitter.com/96kuroguro">くろぐろ臨時研究員 オフ会幹事担当</a></p>
+            <p class="blog-post-meta">June 21 by <a href="https://twitter.com/96kuroguro">くろぐろ</a>（オフ会幹事）</p>
 
             <p>
               <img src="{{ asset('img/common/afteroff-eyecatch.jpg') }}" class="img-fluid"><br>
@@ -136,6 +136,11 @@
               <br>
               あと・・少し、待って
               </p>
+
+            <br>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped bg-secondary" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
 
           </div><!-- /.blog-post -->
 
