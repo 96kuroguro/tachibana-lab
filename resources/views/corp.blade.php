@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>橘総研</title>
+        <title>橘総合研究所 Tachibana-Lab</title>
 
         <script src="{{ asset('js/app.js') }}"></script>
 
@@ -30,7 +30,7 @@
             </a><br>
             Tachibana-Lab
           </div>
-          <div class="col-4 d-flex justify-content-end align-items-center">
+          <div class="col-2 d-flex justify-content-end align-items-center">
             <!-- <a class="text-muted" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
             </a>
@@ -96,9 +96,8 @@
           <div class="blog-post">
             <h2 class="blog-post-title">WIRED</h2>
 
-            <p><a href="/op" class="lain-font">connect wired</a></p>
-
-            <ul>
+            <ul class="lain-font">
+            <li><a href="/op">present day, present time</a></li>
             <li><a href="/twitter">wired ver.1</a></li>
             <li><a href="/wired">wired ver.2</a></li>
             </ul>

@@ -11,8 +11,8 @@
         <p class="time">プレゼント・タイム</p>
     </div>
 
-    <div class="enter">
-        <a href="/twitter"><img src="{{ asset('../img/text/enter.png') }}" alt="Enter"></a>
+    <div class="enter lain-font">
+        <a href="/afteroffparty" style="color: white; font-size: 5vw;">Welcome to ...</a>
     </div>
 
 </div>
