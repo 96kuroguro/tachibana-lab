@@ -123,6 +123,11 @@
               @endif
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSejBWBbXYtsT-7IHsY9yPE-a-hCiEC2Ujs46HMSxSB2xf2qDQ/viewform?usp=sf_link" class="btn btn-danger btn-block btn-lg">事前申込者用アンケートはこちら</a><br>
               <br>
+              @if(date('YmdHis') <= '20180624215959')
+              @php
+                $par = 20180624215959 - date('YmdHis');
+                $bar = (int)( floor( ( (3000000 - $par) / 30000 ) ) );
+              @endphp
               <span class="text-danger">※ただいま、事前申し込みされた方へアンケートを取っております。<br>
               結果により追加でご参加いただける人数が前後しますのでしばらくお待ち下さい。</span><br>
 
@@ -131,11 +136,10 @@
               </p>
 
               <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-secondary  progress-bar-animated" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar progress-bar-striped bg-secondary  progress-bar-animated" role="progressbar" style="width: {{$bar}}%" aria-valuenow="{{$bar}}" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
               <br>
 
-              @if(date('YmdHis') <= '20180624215959')
               <a href="" class="btn btn-secondary btn-block btn-lg disabled" id="countOutput"></a><br>
               @else
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSS87Re8dtTfhTTainEndEjb-4xbT-nAPnQt_wj0pCKkY0_Q/viewform?usp=sf_link" class="btn btn-info btn-block btn-lg">参加申込みはこちら</a><br>
