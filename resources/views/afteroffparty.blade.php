@@ -119,7 +119,7 @@
               ※<a href="http://twipla.jp/events/320957">TwiPla</a>で事前申込みされた方のみ。<br>
               ※事前申し込みした方は全員ご回答ください。<br>
               @if(date('Ymd') <= '20180622')
-              ※6/22（金）の同時視聴までにご回答いただけると助かります。<br>
+              ※<a href="https://twitter.com/_komaya/status/1009419462448119810">6/22（金）の同時視聴</a>までにご回答いただけると助かります。<br>
               @endif
               <a href="https://docs.google.com/forms/d/e/1FAIpQLSejBWBbXYtsT-7IHsY9yPE-a-hCiEC2Ujs46HMSxSB2xf2qDQ/viewform?usp=sf_link" class="btn btn-danger btn-block btn-lg">事前申込者用アンケートはこちら</a><br>
               <br>
