@@ -121,7 +121,7 @@
               @if(date('Ymd') <= '20180622')
               ※<a href="https://twitter.com/_komaya/status/1009419462448119810">6/22（金）の同時視聴</a>までにご回答いただけると助かります。<br>
               @endif
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSejBWBbXYtsT-7IHsY9yPE-a-hCiEC2Ujs46HMSxSB2xf2qDQ/viewform?usp=sf_link" class="btn btn-danger btn-block btn-lg">事前申込者用アンケートはこちら</a><br>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSejBWBbXYtsT-7IHsY9yPE-a-hCiEC2Ujs46HMSxSB2xf2qDQ/viewform?usp=sf_link" class="btn btn-danger btn-block btn-lg">事前申込者用アンケート</a><br>
               <br>
               @if(date('YmdHis') <= '20180624215959')
               @php
@@ -142,7 +142,8 @@
 
               <a href="" class="btn btn-secondary btn-block btn-lg disabled" id="countOutput"></a><br>
               @else
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSS87Re8dtTfhTTainEndEjb-4xbT-nAPnQt_wj0pCKkY0_Q/viewform?usp=sf_link" class="btn btn-info btn-block btn-lg">参加申込みはこちら</a><br>
+              ※事前申し込みしていない方はこちら
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSS87Re8dtTfhTTainEndEjb-4xbT-nAPnQt_wj0pCKkY0_Q/viewform?usp=sf_link" class="btn btn-info btn-block btn-lg">参加申込み</a><br>
               @endif
 
           </div><!-- /.blog-post -->
@@ -176,6 +177,7 @@ function dateCounter() {
  if (ms >= 0) {
      //時間を取得
      var h = Math.floor(ms / 3600000);
+     var day = Math.floor(h / 24);
      var _h = h % 24;
      //分を取得
      var m = Math.floor((ms - h * 3600000) / 60000);
@@ -183,18 +185,25 @@ function dateCounter() {
      var s = Math.round((ms - h * 3600000 - m * 60000) / 1000);
 
      //HTML上に出力
-     document.getElementById("countOutput").innerHTML = "受付開始まで" + daysBetween + "日と" +_h + "時間" + m + "分" +s + "秒";
+     if(day < 1) {
+      document.getElementById("countOutput").innerHTML = "受付開始まで" + _h + "時間" + m + "分" +s + "秒";
+     } else {
+      document.getElementById("countOutput").innerHTML = "受付開始まで" + day + "日と" +_h + "時間" + m + "分" +s + "秒";
+     }
 
      if ((h == 0) && (m == 0) && (s == 0)) {
      clearInterval(timer);
      document.getElementById("countOutput").innerHTML = "経過しました";
      }
  }else{
+    location.reload();
      document.getElementById("countOutput").innerHTML = "経過しました";
  }
  }, 1000);
 }
+@if(date('YmdHis') <= '20180624215959'/*'20180624215959'*/)
 dateCounter();
+@endif
 </script>
     </body>
 </html>
