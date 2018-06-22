@@ -85,7 +85,7 @@
               </h3>
               <div class="mb-1 text-muted">v2.1 モバイル向けパーソナル版</div>
               <p class="card-text mb-auto">手のひらに収まるサイズのNAVIで、制限付きでワイヤードへの接続機能が付きました。<br>メールなど従来の機能もより快適に！</p>
-              <a href="#" style="pointer-events: none;">製品詳細はこちら</a>
+              <a href="https://twitter.com/96kuroguro/status/1001675564439293957">製品詳細はこちら</a>
             </div>
             <img class="card-img-right flex-auto d-none d-md-block" src="{{ asset('img/common/icon-thumb-re.png') }}" alt="Card image cap">
           </div>
