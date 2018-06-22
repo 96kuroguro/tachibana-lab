@@ -193,11 +193,11 @@ function dateCounter() {
 
      if ((h == 0) && (m == 0) && (s == 0)) {
      clearInterval(timer);
-     document.getElementById("countOutput").innerHTML = "経過しました";
+     document.getElementById("countOutput").innerHTML = "ページの再読込してください";
      }
  }else{
     location.reload();
-     document.getElementById("countOutput").innerHTML = "経過しました";
+     document.getElementById("countOutput").innerHTML = "ページの再読込してください";
  }
  }, 1000);
 }
