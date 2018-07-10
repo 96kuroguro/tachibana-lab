@@ -87,8 +87,11 @@
               <br>
               会場の個室を更衣室として使うことも可能ですので、<b class="text-danger">コスプレ希望の方は備考欄にご記入ください。</b>serial experiments lainに関するものでお願いします。<br>
               <br>
+              <del>
               当日参加枠も可能であれば用意しますが、混み状況によっては入場できない場合もあります。<br>
-              当日参加希望の方も必ず申し込みをして、返信が来てからご来場ください。<br>
+              当日参加希望の方も必ず申し込みをして、返信が来てからご来場ください。</del><br>
+              <br>
+              キャンセル待ちの方が多数いらっしゃいますので、当日申込はなしとさせていただきます。
             </p>
             <br>
             <hr>
@@ -120,12 +123,9 @@
             </p>
             <br>
             <br>
-              ※<a href="http://twipla.jp/events/320957">TwiPla</a>で事前申込みされた方のみ。<br>
-              ※事前申し込みした方は全員ご回答ください。<br>
-              @if(date('Ymd') <= '20180622')
-              ※<a href="https://twitter.com/_komaya/status/1009419462448119810">6/22（金）の同時視聴</a>までにご回答いただけると助かります。<br>
-              @endif
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSejBWBbXYtsT-7IHsY9yPE-a-hCiEC2Ujs46HMSxSB2xf2qDQ/viewform?usp=sf_link" class="btn btn-danger btn-block btn-lg">事前申込者用アンケート</a><br>
+              ※<a href="http://twipla.jp/events/320957">TwiPla</a>で事前申込みされた方の受付は6/30で終了しました。<br>
+              ※アンケートを回答されていない方はキャンセルとなりますのでご了承ください。<br>
+              <a href="" class="btn btn-secondary btn-block btn-lg disabled">事前申込者用アンケート</a><br>
               <br>
               @if(date('YmdHis') <= '20180624215959')
               @php
@@ -147,7 +147,7 @@
               <a href="" class="btn btn-secondary btn-block btn-lg disabled" id="countOutput"></a><br>
               @else
               ※事前申し込みしていない方はこちら
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSS87Re8dtTfhTTainEndEjb-4xbT-nAPnQt_wj0pCKkY0_Q/viewform?usp=sf_link" class="btn btn-info btn-block btn-lg">参加申込み</a><br>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSS87Re8dtTfhTTainEndEjb-4xbT-nAPnQt_wj0pCKkY0_Q/viewform?usp=sf_link" class="btn btn-info btn-block btn-lg">キャンセル待ち申込み</a><br>
               @endif
 
           </div><!-- /.blog-post -->
