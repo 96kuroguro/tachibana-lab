@@ -63,6 +63,8 @@
             <p>
               <img src="{{ asset('img/common/afteroff-eyecatch.jpg') }}" class="img-fluid"><br>
               <br>
+              <span class="h4">イベントは無事に終了いたしました！ありがとうございました！ </span><br>
+              <br>
               serial experiments lain 20周年を記念して、lain好きが集まってお話をするオフ会です。<br>
               <br>
               参加条件は<b class="text-danger">lainが好きなことだけ。</b><br>
