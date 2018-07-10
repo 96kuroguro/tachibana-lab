@@ -20,8 +20,8 @@
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@96kuroguro" />
         <meta property="og:url" content="{{url('/')}}" />
-        <meta property="og:title" content="橘総合研究所 Tachibana-Lab" />
-        <meta property="og:description" content="serial experiments lain 20周年を記念したファンサイトです。内容は適当なのであしからず。ただし、イベント情報は本当です、嘘じゃありません。" />
+        <meta property="og:title" content="@yield('title')" />
+        <meta property="og:description" content="" />
         <meta property="og:image" content="{{ asset('img/common/logo_bg.jpg') }}" />
     </head>
     <body>
