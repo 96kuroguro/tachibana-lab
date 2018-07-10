@@ -125,7 +125,7 @@
             <br>
               ※<a href="http://twipla.jp/events/320957">TwiPla</a>で事前申込みされた方の受付は6/30で終了しました。<br>
               ※アンケートを回答されていない方はキャンセルとなりますのでご了承ください。<br>
-              <a href="" class="btn btn-secondary btn-block btn-lg disabled">事前申込者用アンケート</a><br>
+              <a href="" class="btn btn-secondary btn-block btn-lg disabled">イベントは終了しました</a><br>
               <br>
               @if(date('YmdHis') <= '20180624215959')
               @php
@@ -147,7 +147,7 @@
               <a href="" class="btn btn-secondary btn-block btn-lg disabled" id="countOutput"></a><br>
               @else
               ※事前申し込みしていない方はこちら
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSS87Re8dtTfhTTainEndEjb-4xbT-nAPnQt_wj0pCKkY0_Q/viewform?usp=sf_link" class="btn btn-info btn-block btn-lg">キャンセル待ち申込み</a><br>
+              <a href="" class="btn btn-secondary btn-block btn-lg disabled">イベントは終了しました</a><br>
               @endif
 
           </div><!-- /.blog-post -->
