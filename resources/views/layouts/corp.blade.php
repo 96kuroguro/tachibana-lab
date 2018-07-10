@@ -32,7 +32,7 @@
             <img src="{{ asset('img/common/icon-re.png') }}" width="55">
           </div>
           <div class="col-8 text-center">
-            <a class="blog-header-logo text-dark" href="#">
+            <a class="blog-header-logo text-dark" href="{{url('/')}}">
             橘総合研究所
             </a><br>
             Tachibana-Lab
