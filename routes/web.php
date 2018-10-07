@@ -50,12 +50,6 @@ webhookのセット
 URLを叩けばOK
 */
 Route::get('/set', function () {
-    $response = Telegram::getMe();
-
-$botId = $response->getId();
-$firstName = $response->getFirstName();
-$username = $response->getUsername();
-dd($botId,$firstName,$username);
     $res = Telegram::setWebhook([
         'url' => 'https://tachibana-lab.bacronym.net/'.config('telegram.bots.mybot.token').'/webhook'
     ]);
