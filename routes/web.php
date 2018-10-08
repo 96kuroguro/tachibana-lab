@@ -86,17 +86,17 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
         Telegram::sendPhoto([
             'chat_id'  =>  $chatId, 
-            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot1.jpg')),
+            'photo'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot1.jpg')),
             'caption' => "頑張ってます",           
         ]);
         Telegram::sendPhoto([
             'chat_id'  =>  $chatId, 
-            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot2.jpg')),
+            'photo'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot2.jpg')),
             'caption' => "あと・・・少し、まって",           
         ]);
         Telegram::sendPhoto([
             'chat_id'  =>  $chatId, 
-            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_on.jpg')),
+            'photo'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_on.jpg')),
             'caption' => "起動しました",           
         ]);
 
