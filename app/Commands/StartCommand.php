@@ -63,7 +63,7 @@ class StartCommand extends Command
 
         // $this->replyWithMessage(['text' => "あなたはNAVIを起動してあるメッセージを受け取ります。\n会話を進めた結果、あなたは最後にどのような存在になるでしょう？", 'reply_markup' => $keyboard]);
         $this->replyWithPhoto([
-            'photo' => asset('img/chisayomoda_bot/navi_off.jpg'), 
+            'photo' => InputFile::create(asset('img/chisayomoda_bot/navi_off.jpg'), 'NAVI'), 
             'caption' => '',
             'reply_markup' => $keyboard
             ]);
