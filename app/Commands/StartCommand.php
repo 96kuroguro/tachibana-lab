@@ -21,7 +21,7 @@ class StartCommand extends Command
     /**
      * @var string Command Description
      */
-    protected $description = 'start';
+    protected $description = 'New Game';
 
     /**
      * {@inheritdoc}
@@ -61,8 +61,8 @@ class StartCommand extends Command
             Keyboard::button(['text' => 'NAVIを起動する'])
         );
 
-        $this->replyWithMessage(['text' => "あなたはNAVIを起動してあるメッセージを受け取ります。\n会話を進めた結果、あなたは最後にどのような存在になるでしょう？", 'reply_markup' => $keyboard]);
-        // $this->replyWithPhoto(['photo' => asset('img/chisayomoda_bot/navi_off.jpg'), 'reply_markup' => $keyboard]);
+        // $this->replyWithMessage(['text' => "あなたはNAVIを起動してあるメッセージを受け取ります。\n会話を進めた結果、あなたは最後にどのような存在になるでしょう？", 'reply_markup' => $keyboard]);
+        $this->replyWithPhoto(['photo' => asset('img/chisayomoda_bot/navi_off.jpg'), 'reply_markup' => $keyboard]);
 
     }
 
