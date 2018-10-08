@@ -44,6 +44,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::get('/test', function () {
+    $res = Telegram::getMe();
+    dd($res);
+});
+
 
 /*
 webhookのセット
