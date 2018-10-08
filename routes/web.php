@@ -45,6 +45,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/test', function () {
+    $update = Telegram::commandsHandler(true);
+    $message = $update->getMessage();    
+    $chatId = $message->getChat()->getId();
+
     $res = Telegram::sendDocument([
         'chat_id'  =>  $chatId, 
         'document'  =>  asset('img/chisayomoda_bot/navi_boot.gif')
