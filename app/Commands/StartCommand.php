@@ -21,7 +21,7 @@ class StartCommand extends Command
     /**
      * @var string Command Description
      */
-    protected $description = '新規スタート';
+    protected $description = 'start';
 
     /**
      * {@inheritdoc}
