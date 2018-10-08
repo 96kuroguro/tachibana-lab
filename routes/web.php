@@ -45,8 +45,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/test', function () {
-    $res = Telegram::getMe();
-    dd(\Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_off.jpg'), 'NAVI'));
+    $res = Telegram::sendDocument([
+        'chat_id'  =>  $chatId, 
+        'document'  =>  asset('img/chisayomoda_bot/navi_boot.gif')
+    ]);
+    dd($res);
 });
 
 
