@@ -77,9 +77,9 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             \Telegram\Bot\Keyboard\Keyboard::button(['text' => '誰から？'])
         );
 
-        Telegram::sendPhoto([
+        Telegram::sendDocument([
             'chat_id'  =>  $chatId, 
-            'photo'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot.gif'), 'NAVI')
+            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot.gif'), 'NAVI')
         ]);
 
         Telegram::sendMessage([
