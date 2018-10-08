@@ -84,19 +84,30 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             \Telegram\Bot\Keyboard\Keyboard::button(['text' => '誰から？'])
         );
 
-        Telegram::sendDocument([
+        Telegram::sendPhoto([
             'chat_id'  =>  $chatId, 
-            'document'  =>  asset('img/chisayomoda_bot/navi_boot.gif')
+            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot1.jpg')),
+            'caption' => "頑張ってます",           
+        ]);
+        Telegram::sendPhoto([
+            'chat_id'  =>  $chatId, 
+            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot2.jpg')),
+            'caption' => "あと・・・少し、まって",           
+        ]);
+        Telegram::sendPhoto([
+            'chat_id'  =>  $chatId, 
+            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_on.jpg')),
+            'caption' => "起動しました",           
         ]);
 
         Telegram::sendMessage([
             'chat_id'  =>  $chatId, 
-            'text'  =>  "[ハロー　レイン]"
+            'text'  =>  "誰？"
         ]);
 
         Telegram::sendMessage([
             'chat_id'  =>  $chatId, 
-            'text'  =>  "[レインあてに　メッセージが　きています]",
+            'text'  =>  "名前を入れて",
             'reply_markup' => $keyboard
         ]);
     }
