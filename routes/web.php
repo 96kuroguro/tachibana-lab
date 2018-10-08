@@ -79,7 +79,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
         Telegram::sendDocument([
             'chat_id'  =>  $chatId, 
-            'document'  =>  \Telegram\Bot\FileUpload\InputFile::create(asset('img/chisayomoda_bot/navi_boot.gif'), 'NAVI')
+            'document'  =>  asset('img/chisayomoda_bot/navi_boot.gif')
         ]);
 
         Telegram::sendMessage([
