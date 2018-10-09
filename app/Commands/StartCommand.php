@@ -43,8 +43,8 @@ class StartCommand extends Command
         $keyboard = Keyboard::make()
         ->inline()
         ->row(
-            Keyboard::inlineButton(['text' => '誰から？', 'callback_data' => '/start']),
-            Keyboard::inlineButton(['text' => '（遊び方）', 'callback_data' => '/help'])
+            Keyboard::inlineButton(['text' => '誰から？', 'callback_data' => "/start"]),
+            Keyboard::inlineButton(['text' => '（遊び方）', 'callback_data' => "/help"])
         );
 
         // $button = [
