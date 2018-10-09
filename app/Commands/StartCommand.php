@@ -40,12 +40,12 @@ class StartCommand extends Command
 
         // $this->replyWithMessage(['text' => '']);
 
-        // $keyboard = Keyboard::make()
-        // ->inline()
-        // ->row(
-        //     Keyboard::inlineButton(['text' => '誰から？', 'callback_data' => 'who']),
-        //     Keyboard::inlineButton(['text' => '（遊び方）', 'callback_data' => 'help'])
-        // );
+        $keyboard = Keyboard::make()
+        ->inline()
+        ->row(
+            Keyboard::inlineButton(['text' => '誰から？', 'callback_data' => 'start']),
+            Keyboard::inlineButton(['text' => '（遊び方）', 'callback_data' => 'help'])
+        );
 
         // $button = [
         //     ['誰から？', '（遊び方[?]）'],
@@ -57,10 +57,10 @@ class StartCommand extends Command
         //     'one_time_keyboard' => true
         // ]);
 
-        $keyboard = Keyboard::make()
-        ->row(
-            Keyboard::button(['text' => 'NAVIを起動する'])
-        );
+        // $keyboard = Keyboard::make()
+        // ->row(
+        //     Keyboard::button(['text' => 'NAVIを起動する'])
+        // );
 
         // $this->replyWithMessage(['text' => "あなたはNAVIを起動してあるメッセージを受け取ります。\n会話を進めた結果、あなたは最後にどのような存在になるでしょう？", 'reply_markup' => $keyboard]);
         $this->replyWithPhoto([
