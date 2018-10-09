@@ -74,7 +74,7 @@ Route::get('/set', function () {
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $update = Telegram::commandsHandler(true);
 
-    if ($update->isType('callback_data')) {
+    if ($update->isType('callback_query')) {
 
         $message = $update->getMessage();    
         $chatId = $message->getChat()->getId();
