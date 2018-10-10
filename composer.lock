@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3bb851c2b7a0272991e37f10d815a78",
+    "content-hash": "ad19f892bed459c38a9bdcf70f07bd39",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -603,27 +603,27 @@
         },
         {
             "name": "irazasyed/telegram-bot-sdk",
-            "version": "dev-master",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/irazasyed/telegram-bot-sdk.git",
-                "reference": "92a14afa2a7c6b416a7ac21f35440aa48eb3d1b5"
+                "reference": "fc452f11a6509616f26e279ad36339e1b9032472"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/irazasyed/telegram-bot-sdk/zipball/92a14afa2a7c6b416a7ac21f35440aa48eb3d1b5",
-                "reference": "92a14afa2a7c6b416a7ac21f35440aa48eb3d1b5",
+                "url": "https://api.github.com/repos/irazasyed/telegram-bot-sdk/zipball/fc452f11a6509616f26e279ad36339e1b9032472",
+                "reference": "fc452f11a6509616f26e279ad36339e1b9032472",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "~6.0",
-                "illuminate/support": "~5.0",
+                "guzzlehttp/guzzle": "~6.1",
+                "guzzlehttp/psr7": "~1.3",
+                "illuminate/support": "~5.1",
                 "league/event": "^2.1",
-                "php": ">=5.5.0"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpspec/prophecy": "^1.5",
-                "phpunit/phpunit": "^4.8 || ^5.0"
+                "phpunit/phpunit": "^6.1"
             },
             "suggest": {
                 "illuminate/container": "Hold dependencies to be injected in commands constructors",
@@ -670,7 +670,7 @@
                 "telegram php",
                 "telegram sdk"
             ],
-            "time": "2018-09-19T13:42:25+00:00"
+            "time": "2018-01-19T13:51:25+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -4399,9 +4399,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "irazasyed/telegram-bot-sdk": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
