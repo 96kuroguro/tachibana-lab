@@ -80,13 +80,13 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $message->getChat()->getId();
 
-    $array = $update->toArray();
-    $rs = var_export($array['callback_query']['data'], true);
+    // $array = $update->toArray();
+    // $rs = var_export($array['callback_query']['data'], true);
 
-    Telegram::sendMessage([
-        'chat_id'  =>  $chatId, 
-        'text'  =>  $array['callback_query']['data']
-    ]);
+    // Telegram::sendMessage([
+    //     'chat_id'  =>  $chatId, 
+    //     'text'  =>  $array['callback_query']['data']
+    // ]);
 
     /*
 [
