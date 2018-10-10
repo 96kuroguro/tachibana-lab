@@ -81,7 +81,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $chatId = $message->getChat()->getId();
 
     $array = $update->toArray();
-    $rs = var_export($array, true);
+    $rs = var_export($array['items']['callback_query']['data'], true);
 
     Telegram::sendMessage([
         'chat_id'  =>  $chatId, 
