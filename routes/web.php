@@ -76,13 +76,16 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $update = Telegram::commandsHandler(true);
 
     //デバッグ出力
-    $rs = var_export($update->items, true);
+    // $rs = var_export($update, true);
     $message = $update->getMessage();    
     $chatId = $message->getChat()->getId();
+    foreach($update as $up){
+        $rs = var_export($up, true);
     Telegram::sendMessage([
         'chat_id'  =>  $chatId, 
         'text'  =>  $rs
     ]);
+    }
 
     //     $query = $update->getCallbackQuery();
     //     $data  = $query->getData();
