@@ -87,6 +87,64 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     ]);
     }
 
+    /*
+[
+    'items' => 
+    [
+        'update_id' => 252965527,
+        'callback_query' => 
+        [
+            'id' => '1401781563223790412',
+            'from' => 
+            [
+                'id' => 326377703,
+                'is_bot' => false,
+                'first_name' => 'サスケ',
+                'language_code' => 'ja-jp',
+            ],
+            'message' => 
+            [
+                'message_id' => 135,
+                'from' => 
+                [
+                    'id' => 678622407,
+                    'is_bot' => true,
+                    'first_name' => '四方田千砂と話そう',
+                    'username' => 'ChisaYomoda_bot',
+                ],
+                'chat' => 
+                [
+                    'id' => 326377703,
+                    'first_name' => 'サスケ',
+                    'type' => 'private',
+                ],
+                'date' => 1539143161,
+                'photo' => 
+                [
+                    0 => 
+                    [
+                        'file_id' => 'AgADBQADLagxG2U96VVWMN-Fy3f7_fyo1jIABMIL5p6mQq9yIeACAAEC',
+                        'file_size' => 1293,
+                        'width' => 90,
+                        'height' => 45,
+                    ],
+                    1 => 
+                    [
+                        'file_id' => 'AgADBQADLagxG2U96VVWMN-Fy3f7_fyo1jIABOPiLW0MWhQ4IuACAAEC',
+                        'file_size' => 16387,
+                        'width' => 320,
+                        'height' => 160,
+                    ],
+                ],
+                'caption' => '停止中...',
+            ],
+            'chat_instance' => '4112116899874351585',
+            'data' => '/start',
+        ],
+    ],
+]
+*/
+
     //     $query = $update->getCallbackQuery();
     //     $data  = $query->getData();
     //     $start = strpos($data, ' ');
