@@ -76,34 +76,37 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $update = Telegram::commandsHandler(true);
 
     $inline = Telegram::getWebhookUpdate();
-
-    if ($inline->isType('callback_query')) {
-
-        $message = $inline->getMessage();    
-        $chatId = $message->getChat()->getId();
-        Telegram::sendMessage([
-            'chat_id'  =>  $chatId, 
-            'text'  =>  $inline->getCallbackQuery()->getMessage()->getChat()
-        ]);
-
-        $query = $update->getCallbackQuery();
-        $data  = $query->getData();
-        $start = strpos($data, ' ');
-    
-        $command = ($start !== false) ? substr($data, 1, $start - 1) : substr($data, 1);
-    
-        if (in_array($command, $commands)) {
-            $update->put('message', collect([
-                'text' => substr($data, $start + 1),
-                'from' => $query->getMessage()->getFrom(),
-                'chat' => $query->getMessage()->getChat()
-            ]));
-           Telegram::triggerCommand($command, $update);
-        }
-    }
+    $rs = var_export($inline, true);
 
     $message = $update->getMessage();    
     $chatId = $message->getChat()->getId();
+
+    // if ($inline->isType('callback_query')) {
+
+        Telegram::sendMessage([
+            'chat_id'  =>  $chatId, 
+            'text'  =>  $rs
+        ]);
+    // }
+
+    //     $query = $update->getCallbackQuery();
+    //     $data  = $query->getData();
+    //     $start = strpos($data, ' ');
+    
+    //     $command = ($start !== false) ? substr($data, 1, $start - 1) : substr($data, 1);
+    
+    //     if (in_array($command, $commands)) {
+    //         $update->put('message', collect([
+    //             'text' => substr($data, $start + 1),
+    //             'from' => $query->getMessage()->getFrom(),
+    //             'chat' => $query->getMessage()->getChat()
+    //         ]));
+    //        Telegram::triggerCommand($command, $update);
+    //     }
+    // }
+
+    // $message = $update->getMessage();    
+    // $chatId = $message->getChat()->getId();
 
 
     if(preg_match('%NAVIを起動する%', $message->getText())){
