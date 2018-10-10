@@ -87,7 +87,6 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         'chat_id'  =>  $chatId, 
         'text'  =>  $array['callback_query']['data']
     ]);
-    Telegram::triggerCommand($array['callback_query']['data']);
 
     /*
 [
