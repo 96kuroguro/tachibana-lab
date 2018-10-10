@@ -65,6 +65,7 @@ Route::get('/set', function () {
     $res = Telegram::setWebhook([
         'url' => 'https://tachibana-lab.bacronym.net/'.config('telegram.bots.mybot.token').'/webhook'
     ]);
+    dd($res);
 });
 
 /*
