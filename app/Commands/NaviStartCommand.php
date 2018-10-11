@@ -7,22 +7,22 @@ use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Keyboard\Keyboard;
 use Telegram\Bot\FileUpload\InputFile;
 
-class StartCommand extends Command
+class NaviStartCommand extends Command
 {
     /**
      * @var string Command Name
      */
-    protected $name = 'start';
+    protected $name = 'navistart';
 
     /**
      * @var array Command Aliases
      */
-    protected $aliases = ['startcommand'];
+    protected $aliases = ['navistartcommand'];
 
     /**
      * @var string Command Description
      */
-    protected $description = 'New Game';
+    protected $description = '';
 
     /**
      * {@inheritdoc}
@@ -40,12 +40,12 @@ class StartCommand extends Command
 
         // $this->replyWithMessage(['text' => '']);
 
-        $keyboard = Keyboard::make()
-        ->inline()
-        ->row(
-            Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "/navistart"]),
-            Keyboard::inlineButton(['text' => 'ヘルプ', 'callback_data' => "/help"])
-        );
+        // $keyboard = Keyboard::make()
+        // ->inline()
+        // ->row(
+        //     Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "/navistart"]),
+        //     Keyboard::inlineButton(['text' => 'ヘルプ', 'callback_data' => "/help"])
+        // );
 
         // $button = [
         //     ['誰から？', '（遊び方[?]）'],
@@ -64,13 +64,32 @@ class StartCommand extends Command
 
         // $this->replyWithMessage(['text' => "あなたはNAVIを起動してあるメッセージを受け取ります。\n会話を進めた結果、あなたは最後にどのような存在になるでしょう？", 'reply_markup' => $keyboard]);
         $this->replyWithPhoto([
-            'photo' => InputFile::create(asset('img/chisayomoda_bot/navi_off.jpg'), 'NAVI'), 
-            'caption' => '停止中...',
-            'reply_markup' => $keyboard
-            ]);
-            // [ 'chatid' => '', 'photo' => '', 'caption' => '', 'replytomessageid' => '', 'reply_markup' => '', ];
+            'photo' => InputFile::create(asset('img/chisayomoda_bot/navi_boot1.jpg')), 
+            'caption' => '頑張ってます・・',
+        ]);
+        $this->replyWithPhoto([
+            'photo' => InputFile::create(asset('img/chisayomoda_bot/navi_boot2.jpg')), 
+            'caption' => 'あと、少し・・待って',
+        ]);
+        $this->replyWithMessage(['text' => "logon：\nだれ？\nEnter ID"]);
+        //lain
+        //（復唱）lain、名前を喋って！　Voice PassWord
+        //れ　い　ん
+        //Accept
+        //lainだね！\nAccept!
+        //lain宛にメッセージが届いています
+        //誰から？
+        //四方田千砂
+        //メッセージを表示しますか？
+        //こんにちは、元気？
+
+        // $this->replyWithPhoto([
+        //     'photo' => InputFile::create(asset('img/chisayomoda_bot/navi_on.jpg')), 
+        //     'caption' => '頑張ってます・・',
+        // ]);
 
         // $this->replyWithMessage(['text' => asset('img/chisayomoda_bot/navi_off.jpg'), 'reply_markup' => $keyboard]);
+
 
     }
 

@@ -117,7 +117,9 @@ return [
     */
     'commands'                     => [
         App\Commands\StartCommand::class,
-        Telegram\Bot\Commands\HelpCommand::class,
+        App\Commands\HelpCommand::class,
+        App\Commands\NaviStartCommand::class,
+        // Telegram\Bot\Commands\HelpCommand::class,
     ],
 
     /*
