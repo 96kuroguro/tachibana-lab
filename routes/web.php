@@ -84,10 +84,10 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     // $rs = var_export($array['callback_query']['data'], true);
     $callback_data = $array['callback_query']['data'];
 
-    if(isset($callback_data) && !empty($callback_data)){
-        $command = str_replace('/','',$callback_data);
-        Telegram::triggerCommand($command);
-    }
+    // if(isset($callback_data) && !empty($callback_data)){
+    //     $command = str_replace('/','',$callback_data);
+    //     Telegram::triggerCommand($command);
+    // }
     // Telegram::sendMessage([
     //     'chat_id'  =>  $chatId, 
     //     'text'  =>  $array['callback_query']['data']
