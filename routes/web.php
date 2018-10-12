@@ -73,7 +73,7 @@ Route::get('/set', function () {
 コマンドハンドラで処理
 */
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
-    $update = Telegram::commandsHandler(true);
+    // $update = Telegram::commandsHandler(true);
 
     //デバッグ出力
     // $rs = var_export($update, true);
