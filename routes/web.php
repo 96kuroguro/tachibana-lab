@@ -73,12 +73,12 @@ Route::get('/set', function () {
 コマンドハンドラで処理
 */
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
-    // $update = Telegram::commandsHandler(true);
+    $update = Telegram::commandsHandler(true);
 
     // //デバッグ出力
     // // $rs = var_export($update, true);
-    // $message = $update->getMessage();    
-    // $chatId = $message->getChat()->getId();
+    $message = $update->getMessage();    
+    $chatId = $message->getChat()->getId();
 
     // $array = $update->toArray();
     // // $rs = var_export($array['callback_query']['data'], true);
