@@ -80,7 +80,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $message->getChat()->getId();
 
-    // $array = $update->toArray();
+    $array = $update->toArray();
     // // $rs = var_export($array['callback_query']['data'], true);
     $callback_data = $array['callback_query']['data'];
 
