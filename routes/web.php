@@ -80,19 +80,18 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $message->getChat()->getId();
 
-    $query = $update->getCallbackQuery();
-    $this->callback_id = $query->getId();
-   
-   Telegram::answerCallbackQuery([
-               'callback_query_id' => $this->callback_id
-           ]);
+//     $query = $update->getCallbackQuery();
+//     $this->callback_id = $query->getId();
+//    Telegram::answerCallbackQuery([
+//                'callback_query_id' => $this->callback_id
+//            ]);
 
-    $array = $update->toArray();
-    $callback_data = $array['callback_query']['data'];
-    if(isset($callback_data) && !empty($callback_data)){
-        $command = str_replace('/','',$callback_data);
-        $res = Telegram::getCommandBus()->execute($command, [], $update);
-    }
+    // $array = $update->toArray();
+    // $callback_data = $array['callback_query']['data'];
+    // if(isset($callback_data) && !empty($callback_data)){
+    //     $command = str_replace('/','',$callback_data);
+    //     $res = Telegram::getCommandBus()->execute($command, [], $update);
+    // }
 
     // $array = $update->toArray();
     // // // $rs = var_export($array['callback_query']['data'], true);
