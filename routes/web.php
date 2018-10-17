@@ -82,7 +82,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     $query = $update->getCallbackQuery();
     if(!empty($query)){
-        $res = Telegram::getCommandBus()->execute($query->getData(), [], $update);
+        $res = Telegram::getCommandBus()->execute($query->getData(), $update, []);
     }
 
     // $rs = var_export($query->getData(), true);
