@@ -52,6 +52,8 @@ class NaviStartCommand extends Command
 
         // $this->replyWithMessage(['text' => asset('img/chisayomoda_bot/navi_off.jpg'), 'reply_markup' => $keyboard]);
 
+        return "ok";
+
     }
 
 }
