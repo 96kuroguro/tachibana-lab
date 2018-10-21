@@ -85,7 +85,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     //     $res = Telegram::triggerCommand($query->getData(), $update);
     // }
 
-    $rs = var_export(Telegram::triggerCommand('navistart', $update), true);
+    $rs = var_export(Telegram::getCommandBus()->execute('navistart', $update, []), true);
     Telegram::sendMessage([
         'chat_id'  =>  $chatId, 
         'text'  =>  $rs
