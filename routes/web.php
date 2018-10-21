@@ -102,7 +102,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         //    Telegram::triggerCommand($data, $update);
 
     $rs = var_export(
-        $update, 
+        $data, 
         true
     );
     Telegram::sendMessage([
