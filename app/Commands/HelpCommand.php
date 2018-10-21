@@ -36,7 +36,7 @@ class HelpCommand extends Command
             'reply_markup' => $keyboard
             ]);
 
-            return "ok";
+            return response('', 200);
 
     }
 

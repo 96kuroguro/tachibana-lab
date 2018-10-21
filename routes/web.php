@@ -390,5 +390,5 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 その時はよろしくね
 */
 
-    return 'ok';
+    return response('', 200);
 });
