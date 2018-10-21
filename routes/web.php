@@ -99,16 +99,16 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 //            Telegram::triggerCommand($command, $update);
 //         // }
 
-           Telegram::triggerCommand($data, $update);
+        //    Telegram::triggerCommand($data, $update);
 
-    // $rs = var_export(
-    //     Telegram::getCommandBus()->execute('navistart', $update), 
-    //     true
-    // );
-    // Telegram::sendMessage([
-    //     'chat_id'  =>  $chatId, 
-    //     'text'  =>  $rs
-    // ]);
+    $rs = var_export(
+        $update, 
+        true
+    );
+    Telegram::sendMessage([
+        'chat_id'  =>  $chatId, 
+        'text'  =>  $rs
+    ]);
 
 
 
