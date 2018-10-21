@@ -101,14 +101,16 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
         //    Telegram::triggerCommand($data, $update);
 
-    $rs = var_export(
-        $data, 
-        true
-    );
-    Telegram::sendMessage([
-        'chat_id'  =>  $chatId, 
-        'text'  =>  $rs
-    ]);
+Telegram::getCommandBus()->execute($data, [], $update);
+
+    // $rs = var_export(
+    //     $data, 
+    //     true
+    // );
+    // Telegram::sendMessage([
+    //     'chat_id'  =>  $chatId, 
+    //     'text'  =>  $rs
+    // ]);
 
 
 
