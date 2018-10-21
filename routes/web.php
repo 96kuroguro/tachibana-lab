@@ -109,109 +109,11 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     //     'chat_id'  =>  $chatId, 
     //     'text'  =>  $rs
     // ]);
-//     $this->callback_id = $query->getId();
-//    Telegram::answerCallbackQuery([
-//                'callback_query_id' => $this->callback_id
-//            ]);
 
-    // $array = $update->toArray();
-    // $callback_data = $array['callback_query']['data'];
-    // if(isset($callback_data) && !empty($callback_data)){
-    //     $command = str_replace('/','',$callback_data);
-    //     $res = Telegram::getCommandBus()->execute($command, [], $update);
-    // }
 
-    // $array = $update->toArray();
-    // // // $rs = var_export($array['callback_query']['data'], true);
-    // $callback_data = $array['callback_query']['data'];
 
-    // if(isset($callback_data) && !empty($callback_data)){
-    //     $command = str_replace('/','',$callback_data);
-    //     // Telegram::triggerCommand('navistart'); //コマンドクラス以外では使えないらしい
-    // }
-    // $rs = "aaa";
-    // Telegram::sendMessage([
-    //     'chat_id'  =>  $chatId, 
-    //     'text'  =>  $rs
-    // ]);
 
     /*
-[
-    'items' => 
-    [
-        'update_id' => 252965527,
-        'callback_query' => 
-        [
-            'id' => '1401781563223790412',
-            'from' => 
-            [
-                'id' => 326377703,
-                'is_bot' => false,
-                'first_name' => 'サスケ',
-                'language_code' => 'ja-jp',
-            ],
-            'message' => 
-            [
-                'message_id' => 135,
-                'from' => 
-                [
-                    'id' => 678622407,
-                    'is_bot' => true,
-                    'first_name' => '四方田千砂と話そう',
-                    'username' => 'ChisaYomoda_bot',
-                ],
-                'chat' => 
-                [
-                    'id' => 326377703,
-                    'first_name' => 'サスケ',
-                    'type' => 'private',
-                ],
-                'date' => 1539143161,
-                'photo' => 
-                [
-                    0 => 
-                    [
-                        'file_id' => 'AgADBQADLagxG2U96VVWMN-Fy3f7_fyo1jIABMIL5p6mQq9yIeACAAEC',
-                        'file_size' => 1293,
-                        'width' => 90,
-                        'height' => 45,
-                    ],
-                    1 => 
-                    [
-                        'file_id' => 'AgADBQADLagxG2U96VVWMN-Fy3f7_fyo1jIABOPiLW0MWhQ4IuACAAEC',
-                        'file_size' => 16387,
-                        'width' => 320,
-                        'height' => 160,
-                    ],
-                ],
-                'caption' => '停止中...',
-            ],
-            'chat_instance' => '4112116899874351585',
-            'data' => '/start',
-        ],
-    ],
-]
-*/
-
-    //     $query = $update->getCallbackQuery();
-    //     $data  = $query->getData();
-    //     $start = strpos($data, ' ');
-    
-    //     $command = ($start !== false) ? substr($data, 1, $start - 1) : substr($data, 1);
-    
-    //     if (in_array($command, $commands)) {
-    //         $update->put('message', collect([
-    //             'text' => substr($data, $start + 1),
-    //             'from' => $query->getMessage()->getFrom(),
-    //             'chat' => $query->getMessage()->getChat()
-    //         ]));
-    //        Telegram::triggerCommand($command, $update);
-    //     }
-
-    // $message = $update->getMessage();    
-    // $chatId = $message->getChat()->getId();
-
-
     if(preg_match('%NAVIを起動する%', $message)){
         $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
         ->row(
@@ -451,6 +353,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         ]);
 
     }
+    */
 
 /*
     C：こんにちは	C：死んだはずじゃ？
