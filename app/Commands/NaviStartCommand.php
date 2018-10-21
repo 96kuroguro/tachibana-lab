@@ -38,7 +38,7 @@ class NaviStartCommand extends Command
             'document' => asset('img/chisayomoda_bot/navi_boot.gif'), 
         ]);
 
-        $this->replyWithMessage(['text' => "logon：\nだれ？\nEnter ID"]);
+        $this->replyWithMessage(['text' => "> logon：\n> だれ？\n> Enter ID\n\n名前を入力してください"]);
         //lain
         //（復唱）lain、名前を喋って！　Voice PassWord
         //れ　い　ん
