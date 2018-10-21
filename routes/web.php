@@ -74,7 +74,7 @@ Route::get('/set', function () {
 */
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $telegram = new Telegram;
-    $update = Telegram::commandsHandler(true);
+    $update = $telegram->commandsHandler(true);
 
     // //デバッグ出力
     // // $rs = var_export($update, true);
