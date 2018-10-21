@@ -19,10 +19,10 @@ class HelpCommand extends Command
      */
     protected $description = 'How to play';
 
-    /**
+    /*
      * {@inheritdoc}
      */
-    public function handle()
+    public function handle($arguments)
     {
 
         $keyboard = Keyboard::make()

@@ -22,7 +22,7 @@ class NaviStartCommand extends Command
     /**
      * {@inheritdoc}
      */
-    public function handle()
+    public function handle($arguments)
     {
 
         $this->replyWithPhoto([
