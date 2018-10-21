@@ -25,14 +25,19 @@ class NaviStartCommand extends Command
     public function handle($arguments)
     {
 
-        $this->replyWithPhoto([
-            'photo' => asset('img/chisayomoda_bot/navi_boot1.jpg'), 
-            'caption' => '頑張ってます・・',
+        // $this->replyWithPhoto([
+        //     'photo' => asset('img/chisayomoda_bot/navi_boot1.jpg'), 
+        //     'caption' => '頑張ってます・・',
+        // ]);
+        // $this->replyWithPhoto([
+        //     'photo' => asset('img/chisayomoda_bot/navi_boot2.jpg'), 
+        //     'caption' => 'あと、少し・・待って',
+        // ]);
+
+        $this->replyWithDocument([
+            'document' => asset('img/chisayomoda_bot/navi_boot.gif'), 
         ]);
-        $this->replyWithPhoto([
-            'photo' => asset('img/chisayomoda_bot/navi_boot2.jpg'), 
-            'caption' => 'あと、少し・・待って',
-        ]);
+
         $this->replyWithMessage(['text' => "logon：\nだれ？\nEnter ID"]);
         //lain
         //（復唱）lain、名前を喋って！　Voice PassWord
