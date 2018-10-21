@@ -78,7 +78,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     // //デバッグ出力
     // // $rs = var_export($update, true);
     $message = $update->getMessage();    
-    $chatId = $message->getChat()->getId();
+    $chatId = $update->getChat()->getId();
 
 //test
     $query = $update->getCallbackQuery();
