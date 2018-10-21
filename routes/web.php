@@ -86,7 +86,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 // Telegram::getCommandBus()->execute($data, [], $update);
 
     $rs = var_export(
-        $query, 
+        $query->data, 
         true
     );
     Telegram::sendMessage([
