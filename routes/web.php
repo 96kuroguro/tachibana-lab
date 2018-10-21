@@ -80,21 +80,26 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $update->getChat()->getId();
 
-//test
-    $query = $update->getCallbackQuery();
+        $query = $update->getCallbackQuery();
         $data  = $query->getData();
-        $start = strpos($data, ' ');
+
+// //test
+//     $query = $update->getCallbackQuery();
+//         $data  = $query->getData();
+//         $start = strpos($data, ' ');
     
-        $command = ($start !== false) ? substr($data, 1, $start - 1) : substr($data, 1);
+//         $command = ($start !== false) ? substr($data, 1, $start - 1) : substr($data, 1);
     
-        // if (in_array($command, $commands)) {
-            $update->put('message', collect([
-                'text' => substr($data, $start + 1),
-                'from' => $query->getMessage()->getFrom(),
-                'chat' => $query->getMessage()->getChat()
-            ]));
-           Telegram::triggerCommand($command, $update);
-        // }
+//         // if (in_array($command, $commands)) {
+//             $update->put('message', collect([
+//                 'text' => substr($data, $start + 1),
+//                 'from' => $query->getMessage()->getFrom(),
+//                 'chat' => $query->getMessage()->getChat()
+//             ]));
+//            Telegram::triggerCommand($command, $update);
+//         // }
+
+           Telegram::triggerCommand($data, $update);
 
     // $rs = var_export(
     //     Telegram::getCommandBus()->execute('navistart', $update), 
