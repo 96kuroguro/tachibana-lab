@@ -212,7 +212,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     // $chatId = $message->getChat()->getId();
 
 
-    if(preg_match('%NAVIを起動する%', $message->getText())){
+    if(preg_match('%NAVIを起動する%', $message)){
         $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
         ->row(
             \Telegram\Bot\Keyboard\Keyboard::button(['text' => '誰から？'])
@@ -246,7 +246,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         ]);
     }
 
-    if(preg_match('%誰から？%', $message->getText())){
+    if(preg_match('%誰から？%', $message)){
         $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
         ->row(
             \Telegram\Bot\Keyboard\Keyboard::button(['text' => '……開いて'])
@@ -260,7 +260,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     }
 
 
-    if(preg_match('%開いて%', $message->getText())){
+    if(preg_match('%開いて%', $message)){
         Telegram::sendMessage([
             'chat_id'  =>  $chatId, 
             'text'  =>  '[メッセージを開きます]'
@@ -279,15 +279,15 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         ]);
     }
 
-    if(preg_match('%(こんにちは|死んだはずじゃ・・・)%', $message->getText())){
+    if(preg_match('%(こんにちは|死んだはずじゃ・・・)%', $message)){
 
-        if(preg_match('%こんにちは%', $message->getText())){
+        if(preg_match('%こんにちは%', $message)){
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  '玲音は驚かないんだね'
             ]);
 
-        } elseif(preg_match('%死んだはずじゃ・・・%', $message->getText())) {
+        } elseif(preg_match('%死んだはずじゃ・・・%', $message)) {
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  '死ぬという定義にもよるけど、私はただ肉体を捨てただけ'
@@ -309,15 +309,15 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     }
 
-    if(preg_match('%(覚えてる|覚えてない)%', $message->getText())){
+    if(preg_match('%(覚えてる|覚えてない)%', $message)){
 
-        if(preg_match('%覚えてる%', $message->getText())){
+        if(preg_match('%覚えてる%', $message)){
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  '良かった'
             ]);
 
-        } elseif(preg_match('%覚えてない%', $message->getText())) {
+        } elseif(preg_match('%覚えてない%', $message)) {
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  'そっか、たまたま一緒になっただけだし仕方ないよね'
@@ -339,15 +339,15 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     }
 
-    if(preg_match('%(なんで私にメッセージを|どうして死んだの)%', $message->getText())){
+    if(preg_match('%(なんで私にメッセージを|どうして死んだの)%', $message)){
 
-        if(preg_match('%なんで私にメッセージを%', $message->getText())){
+        if(preg_match('%なんで私にメッセージを%', $message)){
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  '玲音は、私と似てるような気がしたから。わかってくれるような気がして'
             ]);
 
-        } elseif(preg_match('%どうして死んだの%', $message->getText())) {
+        } elseif(preg_match('%どうして死んだの%', $message)) {
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  '肉体に意味なんてないって気づいたの'
@@ -369,15 +369,15 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     }
 
-    if(preg_match('%(わかる気がする|わかんないよ)%', $message->getText())){
+    if(preg_match('%(わかる気がする|わかんないよ)%', $message)){
 
-        if(preg_match('%わかる気がする%', $message->getText())){
+        if(preg_match('%わかる気がする%', $message)){
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  '玲音ならそう言ってくれると思った'
             ]);
 
-        } elseif(preg_match('%わかんないよ%', $message->getText())) {
+        } elseif(preg_match('%わかんないよ%', $message)) {
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  'そっちにいるとわかりにくいのかもね'
@@ -400,9 +400,9 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     }
 
     
-    if(preg_match('%(うん|いやだ)%', $message->getText())){
+    if(preg_match('%(うん|いやだ)%', $message)){
 
-        if(preg_match('%うん%', $message->getText())){
+        if(preg_match('%うん%', $message)){
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  "ここから飛べば"
@@ -416,7 +416,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                 'text'  =>  "ふふふ"
             ]);
 
-        } elseif(preg_match('%いやだ%', $message->getText())) {
+        } elseif(preg_match('%いやだ%', $message)) {
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
                 'text'  =>  "そもそも"
