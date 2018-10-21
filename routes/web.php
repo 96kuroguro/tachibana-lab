@@ -73,8 +73,7 @@ Route::get('/set', function () {
 コマンドハンドラで処理
 */
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
-    $telegram = new Telegram;
-    $update = $telegram->commandsHandler(true);
+    $update = Telegram::commandsHandler(true);
 
     // //デバッグ出力
     // // $rs = var_export($update, true);
@@ -87,8 +86,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     // }
 
     $rs = var_export(
-        $update,
-        // Telegram::getCommandBus()->execute('navistart', $update, []), 
+        Telegram::getCommandBus()->execute('navistart'), 
         true
     );
     Telegram::sendMessage([
