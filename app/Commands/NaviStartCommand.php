@@ -26,11 +26,11 @@ class NaviStartCommand extends Command
     {
 
         $this->replyWithPhoto([
-            'photo' => InputFile::create(asset('img/chisayomoda_bot/navi_boot1.jpg')), 
+            'photo' => asset('img/chisayomoda_bot/navi_boot1.jpg'), 
             'caption' => '頑張ってます・・',
         ]);
         $this->replyWithPhoto([
-            'photo' => InputFile::create(asset('img/chisayomoda_bot/navi_boot2.jpg')), 
+            'photo' => asset('img/chisayomoda_bot/navi_boot2.jpg'), 
             'caption' => 'あと、少し・・待って',
         ]);
         $this->replyWithMessage(['text' => "logon：\nだれ？\nEnter ID"]);

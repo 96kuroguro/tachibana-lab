@@ -28,7 +28,7 @@ class HelpCommand extends Command
         $keyboard = Keyboard::make()
         ->inline()
         ->row(
-            Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "/navistart"])
+            Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])
         );
 
         $this->replyWithMessage([
