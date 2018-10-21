@@ -74,23 +74,22 @@ Route::get('/set', function () {
 */
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $update = Telegram::commandsHandler(true);
-    dd($update);
 
     // //デバッグ出力
     // // $rs = var_export($update, true);
     $message = $update->getMessage();    
     $chatId = $message->getChat()->getId();
 
-    $query = $update->getCallbackQuery();
-    if(!empty($query)){
-        $res = Telegram::triggerCommand($query->getData(), $update);
-    }
+    // $query = $update->getCallbackQuery();
+    // if(!empty($query)){
+    //     $res = Telegram::triggerCommand($query->getData(), $update);
+    // }
 
-    // $rs = var_export($query->getData(), true);
-    // Telegram::sendMessage([
-    //     'chat_id'  =>  $chatId, 
-    //     'text'  =>  $rs
-    // ]);
+    $rs = var_export($update, true);
+    Telegram::sendMessage([
+        'chat_id'  =>  $chatId, 
+        'text'  =>  $rs
+    ]);
 //     $this->callback_id = $query->getId();
 //    Telegram::answerCallbackQuery([
 //                'callback_query_id' => $this->callback_id
