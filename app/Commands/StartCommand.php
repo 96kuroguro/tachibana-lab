@@ -29,16 +29,10 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
-        // $commands = $this->telegram->getCommands();
 
-        // $text = '';
-        // foreach ($commands as $name => $handler) {
-        //     $text .= sprintf('/%s - %s'.PHP_EOL, $name, $handler->getDescription());
-        // }
+        //データが有る場合は削除して初期化
 
-        // $this->replyWithMessage(compact('text'));
-
-        // $this->replyWithMessage(['text' => '']);
+        //データがない場合は初期化
 
         $keyboard = Keyboard::make()
         ->inline()
@@ -47,30 +41,11 @@ class StartCommand extends Command
             Keyboard::inlineButton(['text' => 'ヘルプ', 'callback_data' => "help"])
         );
 
-        // $button = [
-        //     ['誰から？', '（遊び方[?]）'],
-        // ];
-        
-        // $keyboard = $telegram->replyKeyboardMarkup([
-        //     'keyboard' => $button, 
-        //     'resize_keyboard' => true, 
-        //     'one_time_keyboard' => true
-        // ]);
-
-        // $keyboard = Keyboard::make()
-        // ->row(
-        //     Keyboard::button(['text' => 'NAVIを起動する'])
-        // );
-
-        // $this->replyWithMessage(['text' => "あなたはNAVIを起動してあるメッセージを受け取ります。\n会話を進めた結果、あなたは最後にどのような存在になるでしょう？", 'reply_markup' => $keyboard]);
         $this->replyWithPhoto([
             'photo' => asset('img/chisayomoda_bot/navi_off.jpg'), 
             'caption' => '停止中...',
             'reply_markup' => $keyboard
-            ]);
-            // [ 'chatid' => '', 'photo' => '', 'caption' => '', 'replytomessageid' => '', 'reply_markup' => '', ];
-
-        // $this->replyWithMessage(['text' => asset('img/chisayomoda_bot/navi_off.jpg'), 'reply_markup' => $keyboard]);
+        ]);
 
         return response('', 200);
 
