@@ -30,14 +30,15 @@ class StartCommand extends Command
     public function handle($arguments)
     {
         $me = $this->getTelegram()->getMe();
+        $rs = var_export($me, true);
         //データが有る場合は削除して初期化
 
         //データがない場合は初期化
         CybotUser::create([
-            'from_id'=>$me->id,
-            'is_bot'=>$me->is_bot,
-            'first_name'=>$me->first_name,
-            'language_code'=>$me->language_code,
+            'from_id'=>1,
+            'is_bot'=>0,
+            'first_name'=>$rs,
+            'language_code'=>'',
             'name'=>null,
             'turn'=>1,
             'san'=>1,
