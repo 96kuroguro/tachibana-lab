@@ -5,7 +5,7 @@ namespace App\Commands;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
 use Telegram\Bot\Keyboard\Keyboard;
-use Telegram\Bot\FileUpload\InputFile;
+use App\Models\CybotUser;
 
 class StartCommand extends Command
 {
@@ -29,10 +29,19 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
-
+        $me = $this->getMe();
         //データが有る場合は削除して初期化
 
         //データがない場合は初期化
+        CybotUser::create([
+            'from_id'=>$me->id,
+            'is_bot'=>$me->is_bot,
+            'first_name'=>$me->first_name,
+            'language_code'=>$me->language_code,
+            'name'=>null,
+            'turn'=>1,
+            'san'=>1,
+        ]);
 
         $keyboard = Keyboard::make()
         ->inline()
