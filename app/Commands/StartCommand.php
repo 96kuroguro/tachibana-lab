@@ -29,7 +29,7 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
-        $me = $this->getMe();
+        $me = $this->getTelegram()->getMe();
         //データが有る場合は削除して初期化
 
         //データがない場合は初期化
