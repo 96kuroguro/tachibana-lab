@@ -34,10 +34,10 @@ class StartCommand extends Command
 
         //データがない場合は初期化
         CybotUser::create([
-            'from_id'=>$me->getItem()['id'],
-            'is_bot'=>$me->getItem()['is_bot'],
-            'first_name'=>$me->getItem()['first_name'],
-            'language_code'=>$me->getItem()['language_code'],
+            'from_id'=>$me->getId(),
+            'is_bot'=>false,
+            'first_name'=>$me->getFirstName(),
+            'language_code'=>"",
             'name'=>null,
             'turn'=>1,
             'san'=>1,
