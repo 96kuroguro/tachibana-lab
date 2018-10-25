@@ -13,6 +13,7 @@ class CybotUser extends Model
         'first_name',
         'language_code',
         'name',
+        'scene',
         'turn',
         'san',
     ];
