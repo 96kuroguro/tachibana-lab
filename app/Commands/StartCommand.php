@@ -37,7 +37,7 @@ class StartCommand extends Command
             'text' => var_export(
                 [
                     'id' => $bot->getId(),
-                    'is_bot' => $bot->isBot(),
+                    'is_bot' => $bot->getIsBot(),
                     'first_name' => $bot->getFirstName(),
                     'language_code' => $bot->getLanguageCode(),
                 ]
