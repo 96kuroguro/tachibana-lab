@@ -30,28 +30,34 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
-        $bot = $this->getTelegram()->getMe();//botの情報
+        /*
+        'id' => $bot->getId(),
+        'is_bot' => $bot->getIsBot(),
+        'first_name' => $bot->getFirstName(),
+        'language_code' => $bot->getLanguageCode(),
+        'username' => $bot->getUsername(), //未設定の場合は存在しない
+        */
+        // $bot = $this->getTelegram()->getMe();//botの情報
+
         $update = $this->getUpdate();
         $user = $update->getMessage()->getFrom();
-        $this->replyWithMessage([
-            'text' => var_export(
-                [
-                    'id' => $bot->getId(),
-                    'is_bot' => $bot->getIsBot(),
-                    'first_name' => $bot->getFirstName(),
-                    'language_code' => $bot->getLanguageCode(),
-                ]
-                , true), 
-        ]);
-        //データが有る場合は削除して初期化
 
-        //データがない場合は初期化
-        CybotUser::create([
+        //DBと称号
+        $me = CybotUser::where('from_id', $user->getId())->first();
+
+        //データが有る場合は削除
+        if($me){
+            $me->delete();
+        }
+
+        //データを初期化
+        $me = CybotUser::create([
             'from_id'=>$user->getId(),
-            'is_bot'=>false,
+            'is_bot'=>$user->getIsBot(),
             'first_name'=>$user->getFirstName(),
             'language_code'=>$user->getLanguageCode(),
             'name'=>null,
+            'scene'=>1, //初期値
             'turn'=>1, //初期値
             'san'=>1, //初期値
         ]);
