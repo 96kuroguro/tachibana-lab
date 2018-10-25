@@ -33,7 +33,7 @@ class StartCommand extends Command
         // $bot = $this->getTelegram()->getMe();//botの情報
         $update = $this->getUpdate();
         $this->replyWithMessage([
-            'text' => var_export($update->getMessage()->getFrom(), true), 
+            'text' => var_export($update->getMessage()->getFrom()->getId(), true), 
         ]);
         //データが有る場合は削除して初期化
 
