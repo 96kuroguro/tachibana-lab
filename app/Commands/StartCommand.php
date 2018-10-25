@@ -30,8 +30,11 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
-        $me = $this->getTelegram()->getMe();
-        $me = Telegram::getMe();
+        // $bot = $this->getTelegram()->getMe();//botの情報
+        $update = $this->getUpdate();
+        $this->replyWithMessage([
+            'text' => var_export($update, true), 
+        ]);
         //データが有る場合は削除して初期化
 
         //データがない場合は初期化
