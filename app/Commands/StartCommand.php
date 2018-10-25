@@ -30,16 +30,16 @@ class StartCommand extends Command
      */
     public function handle($arguments)
     {
-        // $bot = $this->getTelegram()->getMe();//botの情報
+        $bot = $this->getTelegram()->getMe();//botの情報
         $update = $this->getUpdate();
         $user = $update->getMessage()->getFrom();
         $this->replyWithMessage([
             'text' => var_export(
                 [
-                    'id' => $user->getId(),
-                    'is_bot' => $user->isBots(),
-                    'first_name' => $user->getFirstName(),
-                    'language_code' => $user->getLanguageCode(),
+                    'id' => $bot->getId(),
+                    'is_bot' => $bot->isBot(),
+                    'first_name' => $bot->getFirstName(),
+                    'language_code' => $bot->getLanguageCode(),
                 ]
                 , true), 
         ]);
@@ -47,13 +47,13 @@ class StartCommand extends Command
 
         //データがない場合は初期化
         CybotUser::create([
-            'from_id'=>$me->getId(),
+            'from_id'=>$user->getId(),
             'is_bot'=>false,
-            'first_name'=>$me->getFirstName(),
-            'language_code'=>"",
+            'first_name'=>$user->getFirstName(),
+            'language_code'=>$user->getLanguageCode(),
             'name'=>null,
-            'turn'=>1,
-            'san'=>1,
+            'turn'=>1, //初期値
+            'san'=>1, //初期値
         ]);
 
         $keyboard = Keyboard::make()
