@@ -80,7 +80,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     Telegram::sendMessage([
         'chat_id'  =>  $chatId, 
-        'text'  =>  var_export($update, true);
+        'text'  =>  var_export($update, true)
     ]);
 
     $user = \App\Models\CybotUser::where('from_id', $message->getFrom()->getId())->first();
