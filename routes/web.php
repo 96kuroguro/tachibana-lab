@@ -89,7 +89,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     } else { //コールバッククエリがない場合
         $type = "text";
-        $value = $update->getChat();
+        $value = $update->getMessage();
 
         $rs = var_export($value, true);
 
