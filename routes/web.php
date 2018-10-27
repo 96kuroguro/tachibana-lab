@@ -75,8 +75,16 @@ Route::get('/set', function () {
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $update = Telegram::commandsHandler(true);
 
+
     $message = $update->getMessage();    
     $chatId = $update->getChat()->getId();
+
+    if($update->getEntities()){
+        Telegram::sendMessage([
+            'chat_id'  =>  $chatId, 
+            'text'  =>  "bot_command"
+        ]);
+    }
 
     //入力値がシーンとあっているか判定
     $query = $update->getCallbackQuery();
