@@ -78,30 +78,89 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $update->getChat()->getId();
 
+    $user = \App\Models\CybotUser::where('from_id', $message->getFrom()->getId())->first();
+
     //入力値がシーンとあっているか判定
     $query = $update->getCallbackQuery();
     if(!empty($query)){ //コールバッククエリがある場合
         $data  = $query->getData();
         $type = "callback";
+        //ボタンのコールバック文字列をvalueに入れる
         $value = $data;
-
-        $rs = var_export($value, true);
-
     } else { //コールバッククエリがない場合
         $type = "text";
+
+        //送信された文字列をvalueに入れる
         $value = $update->getMessage()->getText();
-
-        $rs = var_export($value, true);
-
     }
-    // $result = CheckTable::where()->get();
+    $result = \App\Models\CheckReceipt::where('scene', $user->scene)
+    ->where('type', $type)
+    ->where('receipt', $value)
+    ->where('turn', '<=', $user->turn)
+    ->where('san', '<=', $user->san)
+    ->orderBy('turn', 'desc')
+    ->orderBy('san', 'desc')
+    ->value('return');
     //result 返り値をチェックしてアクションを返す
 
-    Telegram::sendMessage([
-        'chat_id'  =>  $chatId, 
-        'text'  =>  $rs
-    ]);
+    //result がある場合
+    if($result){
 
+        $scenes = \App\Models\Scenario::where('scene', $user->scene)
+        ->where('route', $result)
+        ->orderBy('order')
+        ->get();
+
+        foreach($scenes as $scene){
+            switch($scene->send_type){
+                case 'text':
+                    Telegram::sendMessage([
+                        'chat_id'  =>  $chatId, 
+                        'text'  =>  $scene->message
+                    ]);
+                    break;
+
+                case 'photo':
+                    Telegram::sendPhoto([
+                        'chat_id'  =>  $chatId, 
+                        'photo'  =>  asset($scene->file),
+                        'caption'  =>  $scene->message
+                    ]);
+                    break;
+
+                case 'document':
+                    Telegram::sendDocument([
+                        'chat_id'  =>  $chatId, 
+                        'document'  =>  asset($scene->file),
+                        'caption'  =>  $scene->message
+                    ]);
+                    break;
+            }
+
+            $user->scene = $scene->next_scene;
+        }
+
+        $user->save();
+
+
+    } else {//result がない場合
+        //エラーメッセージテーブルから返す
+
+        $error = \App\Models\ErrorMessage::where('scene', $user->scene)
+        ->first();
+
+        if(!$error){
+            $error = \App\Models\ErrorMessage::whereNull('scene')
+            ->inRandomOrder()->first();
+        }
+
+        Telegram::sendMessage([
+            'chat_id'  =>  $chatId, 
+            'text'  =>  $error->message
+        ]);
+
+
+    }
 
     // //デバッグ出力
     // // $rs = var_export($update, true);
