@@ -83,7 +83,6 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         'text'  =>  var_export($update, true)
     ]);
 
-    $user = \App\Models\CybotUser::where('from_id', $message->getFrom()->getId())->first();
 
     //入力値がシーンとあっているか判定
     $query = $update->getCallbackQuery();
@@ -92,11 +91,16 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         $type = "callback";
         //ボタンのコールバック文字列をvalueに入れる
         $value = $data;
+
+        $user = \App\Models\CybotUser::where('from_id', $query->getFrom()->getId())->first();
+
     } else { //コールバッククエリがない場合
         $type = "text";
 
         //送信された文字列をvalueに入れる
         $value = $update->getMessage()->getText();
+
+        $user = \App\Models\CybotUser::where('from_id', $message->getFrom()->getId())->first();
     }
     $result = \App\Models\CheckReceipt::where('scene', $user->scene)
     ->where('type', $type)
