@@ -79,7 +79,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $update->getChat()->getId();
 
-    if($update->getEntities()){
+    if($message->getEntities()){
         Telegram::sendMessage([
             'chat_id'  =>  $chatId, 
             'text'  =>  "bot_command"
