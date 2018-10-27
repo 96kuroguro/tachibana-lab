@@ -75,16 +75,45 @@ Route::get('/set', function () {
 Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $update = Telegram::commandsHandler(true);
 
+    $message = $update->getMessage();    
+    $chatId = $update->getChat()->getId();
+
+    //入力値がシーンとあっているか判定
+    $query = $update->getCallbackQuery();
+    if(!empty($query)){ //コールバッククエリがある場合
+        $data  = $query->getData();
+        $type = "callback";
+        $value = $data;
+
+        $rs = var_export($value, true);
+
+    } else { //コールバッククエリがない場合
+        $type = "text";
+        $value = $update->getChat()->getRawResponse();
+
+        $rs = var_export($value, true);
+
+    }
+    // $result = CheckTable::where()->get();
+    //result 返り値をチェックしてアクションを返す
+
+    Telegram::sendMessage([
+        'chat_id'  =>  $chatId, 
+        'text'  =>  $rs
+    ]);
+
+
     // //デバッグ出力
     // // $rs = var_export($update, true);
     // $message = $update->getMessage();    
     // $chatId = $update->getChat()->getId();
 
-        $query = $update->getCallbackQuery();
-        if(!empty($query)){
-            $data  = $query->getData();
-            Telegram::getCommandBus()->execute($data, [], $update);
-        }
+    // //コールバックデータからコマンドを呼び出し
+    // $query = $update->getCallbackQuery();
+    // if(!empty($query)){
+    //     $data  = $query->getData();
+    //     Telegram::getCommandBus()->execute($data, [], $update);
+    // }
 
     // $rs = var_export(
     //     $query->getData(), 
