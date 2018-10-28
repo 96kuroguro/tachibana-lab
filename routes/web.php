@@ -138,11 +138,29 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                 $message = sprintf($scene->message, $user->name);
             }
 
+            $keyboard = null;
+            $inline_buttons = $scene->buttons()->orderBy('line')->orderBy('order')->get(); 
+            if($inline_buttons->isNotEmpty()){
+                foreach($inline_buttons as $button){
+                    $btn[$button->line] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
+                }
+                $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
+                ->inline();
+                foreach($btn as $b){
+                    $kb = implode(',', $b);
+                    $keyboard->row(
+                        $kb
+                    );
+                }
+            }
+        
+
             switch($scene->send_type){
                 case 'text':
                     Telegram::sendMessage([
                         'chat_id'  =>  $chatId, 
-                        'text'  =>  $message
+                        'text'  =>  $message,
+                        'reply_markup' => $keyboard
                     ]);
                     break;
 
@@ -150,7 +168,8 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     Telegram::sendPhoto([
                         'chat_id'  =>  $chatId, 
                         'photo'  =>  asset($scene->file),
-                        'caption'  =>  $message
+                        'caption'  =>  $message,
+                        'reply_markup' => $keyboard
                     ]);
                     break;
 
@@ -158,7 +177,8 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     Telegram::sendDocument([
                         'chat_id'  =>  $chatId, 
                         'document'  =>  asset($scene->file),
-                        'caption'  =>  $message
+                        'caption'  =>  $message,
+                        'reply_markup' => $keyboard
                     ]);
                     break;
             }
