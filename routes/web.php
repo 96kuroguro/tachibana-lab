@@ -111,7 +111,10 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     }
     $result = \App\Models\CheckReceipt::where('scene', $user->scene)
     ->where('type', $type)
-    ->where('receipt', $value)
+    ->where(function($q) use ($value){
+        $q->orWhereNull('receipt')
+              ->orWhere('receipt', $value);
+    })
     ->where('turn', '<=', $user->turn)
     ->where('san', '<=', $user->san)
     ->orderBy('turn', 'desc')
