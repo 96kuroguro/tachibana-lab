@@ -161,9 +161,11 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
             $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
                 ->inline();
-                $keyboard->row(
-                    $test
-                );
+                foreach($test as $t){
+                    $keyboard->row(
+                        $t
+                    );
+                }
 
             switch($scene->send_type){
                 case 'text':
