@@ -142,7 +142,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             $inline_buttons = $scene->buttons()->orderBy('line')->orderBy('order')->get(); 
             if($inline_buttons->isNotEmpty()){
                 foreach($inline_buttons as $button){
-                    $btn[$button->line] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
+                    $btn[$button->line][] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
                 }
                 $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
                 ->inline();
