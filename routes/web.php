@@ -79,16 +79,20 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $update->getChat()->getId();
 
-    if($message->getEntities()){
-        Telegram::sendMessage([
-            'chat_id'  =>  $chatId, 
-            'text'  =>  "bot_command"
-        ]);
-        return response('', 200);
+    $query = $update->getCallbackQuery();
+
+    //コールバッククエリがある場合はスキップ（ない場合のみ処理）
+    if(empty($query)){
+        if($message->getEntities()){
+            return response('', 200);
+            Telegram::sendMessage([
+                'chat_id'  =>  $chatId, 
+                'text'  =>  "bot_command"
+            ]);
+        }
     }
 
     //入力値がシーンとあっているか判定
-    $query = $update->getCallbackQuery();
     if(!empty($query)){ //コールバッククエリがある場合
         $data  = $query->getData();
         $type = "callback";
