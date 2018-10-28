@@ -157,7 +157,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
             Telegram::sendMessage([
                 'chat_id'  =>  $chatId, 
-                'text'  =>  var_export($scene, true)
+                'text'  =>  var_export($scene->next_scene, true)
             ]);
         }
 
