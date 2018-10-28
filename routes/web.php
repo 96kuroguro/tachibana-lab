@@ -79,12 +79,12 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     $message = $update->getMessage();    
     $chatId = $update->getChat()->getId();
 
-    if(null !== $message->getEntities()){
-        return response('', 200);
+    if($message->getEntities()){
         Telegram::sendMessage([
             'chat_id'  =>  $chatId, 
             'text'  =>  "bot_command"
         ]);
+        return response('', 200);
     }
 
     //入力値がシーンとあっているか判定
