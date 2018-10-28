@@ -131,11 +131,18 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         ->get();
 
         foreach($scenes as $scene){
+
+            if($scene->scene == 2){
+                $message = sprintf($scene->message, $value);
+            } else {
+                $message = sprintf($scene->message, $user->name);
+            }
+
             switch($scene->send_type){
                 case 'text':
                     Telegram::sendMessage([
                         'chat_id'  =>  $chatId, 
-                        'text'  =>  $scene->message
+                        'text'  =>  $message
                     ]);
                     break;
 
@@ -143,7 +150,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     Telegram::sendPhoto([
                         'chat_id'  =>  $chatId, 
                         'photo'  =>  asset($scene->file),
-                        'caption'  =>  $scene->message
+                        'caption'  =>  $message
                     ]);
                     break;
 
@@ -151,7 +158,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     Telegram::sendDocument([
                         'chat_id'  =>  $chatId, 
                         'document'  =>  asset($scene->file),
-                        'caption'  =>  $scene->message
+                        'caption'  =>  $message
                     ]);
                     break;
             }
