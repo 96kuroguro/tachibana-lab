@@ -139,33 +139,65 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             }
 
             $keyboard = null;
-            // $inline_buttons = $scene->buttons()->orderBy('line')->orderBy('order')->get(); 
-            // if($inline_buttons->isNotEmpty()){
-            //     foreach($inline_buttons as $button){
-            //         $btn[$button->line][] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
-            //     }
-            //     $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
+            $inline_buttons = $scene->buttons()->orderBy('line')->orderBy('order')->get(); 
+            if($inline_buttons->isNotEmpty()){
+                //行で分けて配列に格納
+                foreach($inline_buttons as $button){
+                    $btn[$button->line][] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
+                }
+
+                /*
+                作りたいデータ形式
+
+                $kbs = [
+                    1 => [
+                        Keyboard::inlineButton(),
+                        Keyboard::inlineButton(),
+                        Keyboard::inlineButton(),
+                    ],
+                    2 => [
+                        Keyboard::inlineButton(),
+                        Keyboard::inlineButton(),
+                    ],
+                ];
+                foreach($kbs as $kb){
+                    //kb->coutn で switch 1 or 2 or 3
+                    $keyboard->row($kb[0]);
+                    $keyboard->row($kb[0], $kb[1]);
+                    $keyboard->row($kb[0], $kb[1], $kb[2]);
+                }
+                */
+
+                $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
+                ->inline();
+                foreach($btn as $b){
+                    $count = count($b);
+                    switch($count){
+                        case 1:
+                            $keyboard->row($b[0]);
+                            break;                        
+                        case 2:
+                            $keyboard->row($b[0], $b[1]);
+                            break;                        
+                        case 3:
+                            $keyboard->row($b[0], $b[1], $b[2]);
+                            break;                        
+                    }
+                }
+            }
+
+            // $test = [
+            //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"]),
+            //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])
+            // ];
+
+            // $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
             //     ->inline();
-            //     foreach($btn as $b){
-            //         $kb = implode(',', $b);
+            //     foreach($test as $t){
             //         $keyboard->row(
-            //             $kb
+            //             $t
             //         );
             //     }
-            // }
-
-            $test = [
-                \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"]),
-                \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])
-            ];
-
-            $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
-                ->inline();
-                foreach($test as $t){
-                    $keyboard->row(
-                        $t
-                    );
-                }
 
             switch($scene->send_type){
                 case 'text':
