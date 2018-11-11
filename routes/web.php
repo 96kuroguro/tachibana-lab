@@ -182,6 +182,12 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                         case 3:
                             $keyboard->row($b[0], $b[1], $b[2]);
                             break;                        
+                        case 4:
+                            $keyboard->row($b[0], $b[1], $b[2], $b[3]);
+                            break;                        
+                        case 5:
+                            $keyboard->row($b[0], $b[1], $b[2], $b[3], $b[4]);
+                            break;                        
                     }
                 }
             }
