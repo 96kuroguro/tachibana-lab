@@ -132,8 +132,14 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
         foreach($scenes as $scene){
 
-            if($scene->scene == 2){
+            if(
+                ($scene->scene == 2 && $scene->route == 1) ||
+                ($scene->scene == 3 && $scene->route == 3)
+            ){
                 $message = sprintf($scene->message, $value);
+
+                $user->name = $value;
+                $user->save();
             } else {
                 $message = sprintf($scene->message, $user->name);
             }
