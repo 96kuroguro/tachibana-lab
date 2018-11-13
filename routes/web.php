@@ -113,7 +113,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     ->where('type', $type)
     ->where(function($q) use ($value){
         $q->orWhereNull('receipt')
-              ->orWhere('receipt', $value);
+              ->orWhere('receipt', 'LIKE', '%'.$value.'%');
     })
     ->where('turn', '<=', $user->turn)
     ->where('san', '<=', $user->san)
@@ -126,7 +126,10 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     if($result){
 
         $scenes = \App\Models\Scenario::where('scene', $user->scene)
-        ->where('route', $result)
+        ->where(function($q) use ($result){
+            $q->orWhereNull('route')
+                  ->orWhere('route', $result);
+        })
         ->orderBy('order')
         ->get();
 
