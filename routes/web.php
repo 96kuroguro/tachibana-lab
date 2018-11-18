@@ -152,12 +152,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             if($inline_buttons->isNotEmpty()){
                 //行で分けて配列に格納
                 foreach($inline_buttons as $button){
-                    $btn[$button->line][] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
-
-                    Telegram::sendMessage([
-                        'chat_id'  =>  $chatId, 
-                        'text'  =>  var_export($button, true)
-                    ]);
+                    $btn[$button->pivot->line][] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
                 }
 
                 /*
