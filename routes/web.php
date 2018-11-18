@@ -204,12 +204,12 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
                 ->inline()
                 ->row(
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'A', 'callback_data' => '']),
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'B', 'callback_data' => ''])
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'A', 'callback_data' => 'a']),
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'B', 'callback_data' => 'b'])
                 )
                 ->row(
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'C', 'callback_data' => '']),
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'D', 'callback_data' => ''])
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'C', 'callback_data' => 'c']),
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'D', 'callback_data' => 'd'])
                 );
     
             // $test = [
