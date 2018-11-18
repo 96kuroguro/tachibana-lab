@@ -205,10 +205,10 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             $keyboard->inline();
             $keyboard->row(
                     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'A', 'callback_data' => 'a']),
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'B', 'callback_data' => 'b'])
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'B', 'callback_data' => 'b']),
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'C', 'callback_data' => 'c'])
             );
             $keyboard->row(
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'C', 'callback_data' => 'c']),
                     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'D', 'callback_data' => 'd'])
                 );
     
