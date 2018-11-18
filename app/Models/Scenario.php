@@ -9,7 +9,7 @@ class Scenario extends Model
     //
     public function buttons()
     {
-        return $this->belongsToMany('App\Models\InlineButton');
+        return $this->belongsToMany('App\Models\InlineButton')->withPivot('line', 'order');;
     }
 
 }
