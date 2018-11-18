@@ -176,6 +176,11 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     $keyboard->row($kb[0], $kb[1], $kb[2]);
                 }
                 */
+                
+                Telegram::sendMessage([
+                    'chat_id'  =>  $chatId, 
+                    'text'  =>  var_export($btn, true)
+                ]);
 
                 $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
                 ->inline();
@@ -201,17 +206,6 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                 }
             }
 
-            $keyboard = \Telegram\Bot\Keyboard\Keyboard::make();
-            $keyboard->inline();
-            $keyboard->row(
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'A', 'callback_data' => 'a']),
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'B', 'callback_data' => 'b']),
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'C', 'callback_data' => 'c'])
-            );
-            $keyboard->row(
-                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'D', 'callback_data' => 'd'])
-                );
-    
             // $test = [
             //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"]),
             //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])
