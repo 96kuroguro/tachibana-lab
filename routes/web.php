@@ -154,11 +154,6 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                 foreach($inline_buttons as $button){
                     $btn[$button->pivot->line][] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => $button->text, 'callback_data' => $button->callback_data]);
                 }
-
-                Telegram::sendMessage([
-                    'chat_id'  =>  $chatId, 
-                    'text'  =>  var_export($button->pivot->line, true)
-                ]);
     
                 /*
                 作りたいデータ形式
