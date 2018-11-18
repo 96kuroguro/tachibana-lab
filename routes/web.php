@@ -200,7 +200,18 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     }
                 }
             }
-dd($keyboard);
+
+            $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
+                ->inline()
+                ->row(
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'A', 'callback_data' => '']),
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'B', 'callback_data' => ''])
+                )
+                ->row(
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'C', 'callback_data' => '']),
+                    \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'D', 'callback_data' => ''])
+                );
+    
             // $test = [
             //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"]),
             //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])
