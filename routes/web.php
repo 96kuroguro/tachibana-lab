@@ -179,7 +179,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                 
                 Telegram::sendMessage([
                     'chat_id'  =>  $chatId, 
-                    'text'  =>  var_export($button->line, true)
+                    'text'  =>  var_export($button, true)
                 ]);
 
                 $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
