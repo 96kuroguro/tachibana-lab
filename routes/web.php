@@ -200,7 +200,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     }
                 }
             }
-
+dump($keyboard);
             // $test = [
             //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"]),
             //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])

@@ -65,8 +65,7 @@ class StartCommand extends Command
         $keyboard = Keyboard::make()
         ->inline()
         ->row(
-            Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"]),
-            Keyboard::inlineButton(['text' => 'ヘルプ', 'callback_data' => "help"])
+            Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])
         );
 
         $this->replyWithPhoto([
