@@ -70,7 +70,7 @@ class StartCommand extends Command
 
         $this->replyWithPhoto([
             'photo' => asset('img/chisayomoda_bot/navi_off.jpg'), 
-            'caption' => '停止中...',
+            'caption' => 'NAVIが机の上に置いてある',
             'reply_markup' => $keyboard
         ]);
 

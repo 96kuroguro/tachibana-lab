@@ -60,12 +60,13 @@ Route::get('/test', function () {
 /*
 webhookのセット
 URLを叩けばOK
+セットが終わったら消しておく
 */
 Route::get('/set', function () {
-    $res = Telegram::setWebhook([
-        'url' => 'https://tachibana-lab.bacronym.net/'.config('telegram.bots.mybot.token').'/webhook'
-    ]);
-    dd($res);
+    // $res = Telegram::setWebhook([
+    //     'url' => 'https://tachibana-lab.bacronym.net/'.config('telegram.bots.mybot.token').'/webhook'
+    // ]);
+    // dd($res);
 });
 
 /*
@@ -154,29 +155,6 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                 foreach($inline_buttons as $button){
                     $btn[$button->pivot->line][] = \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => sprintf($button->text, $user->name), 'callback_data' => $button->callback_data]);
                 }
-    
-                /*
-                作りたいデータ形式
-
-                $kbs = [
-                    1 => [
-                        Keyboard::inlineButton(),
-                        Keyboard::inlineButton(),
-                        Keyboard::inlineButton(),
-                    ],
-                    2 => [
-                        Keyboard::inlineButton(),
-                        Keyboard::inlineButton(),
-                    ],
-                ];
-                foreach($kbs as $kb){
-                    //kb->coutn で switch 1 or 2 or 3
-                    $keyboard->row($kb[0]);
-                    $keyboard->row($kb[0], $kb[1]);
-                    $keyboard->row($kb[0], $kb[1], $kb[2]);
-                }
-                */
-                
 
                 $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
                 ->inline();
@@ -201,19 +179,6 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                     }
                 }
             }
-
-            // $test = [
-            //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"]),
-            //     \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'NAVIを起動する', 'callback_data' => "navistart"])
-            // ];
-
-            // $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
-            //     ->inline();
-            //     foreach($test as $t){
-            //         $keyboard->row(
-            //             $t
-            //         );
-            //     }
 
             switch($scene->send_type){
                 case 'text':
@@ -268,6 +233,10 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
 
     }
+
+    //ターン数を1ずつ増やす
+    $user->turn++;
+    $user->save();
 
     Telegram::sendMessage([
         'chat_id'  =>  $chatId, 
