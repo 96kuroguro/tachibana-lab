@@ -123,6 +123,34 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     ->value('return');
     //result 返り値をチェックしてアクションを返す
 
+
+    //ターン数を1ずつ増やす
+    $user->turn++;
+    $user->save();
+
+        /*
+        不出来なデュープエンド
+        */
+        //ターン数が一定値を超えたときの処理（シナリオ番号が2桁のときのみ）
+        if($user->turn > 10 && $user->scene < 99){
+            $user->scene = 190;
+            $user->save();
+
+            $keyboard = Keyboard::make()
+            ->inline()
+            ->row(
+                Keyboard::inlineButton(['text' => 'っ！？', 'callback_data' => "dupeend"])
+            );
+
+            Telegram::sendPhoto([
+                'chat_id'  =>  $chatId, 
+                'photo'  =>  asset('img/chisayomoda_bot/provisional.jpg'),
+                'reply_markup' => $keyboard
+            ]);
+
+            return response('', 200);
+        }
+        
     //result がある場合
     if($result){
 
@@ -234,9 +262,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     }
 
-    //ターン数を1ずつ増やす
-    $user->turn++;
-    $user->save();
+
 
     Telegram::sendMessage([
         'chat_id'  =>  $chatId, 
