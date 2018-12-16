@@ -121,7 +121,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     ->where('san', '<=', $user->san)
     ->orderBy('turn', 'desc')
     ->orderBy('san', 'desc')
-    ->value('return');
+    ->first();
     //result 返り値をチェックしてアクションを返す
 
     //選択肢によってSAN値を加算
@@ -161,7 +161,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         $scenes = \App\Models\Scenario::where('scene', $user->scene)
         ->where(function($q) use ($result){
             $q->orWhereNull('route')
-                  ->orWhere('route', $result);
+                  ->orWhere('route', $result->return);
         })
         ->orderBy('order')
         ->get();
