@@ -124,8 +124,6 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     ->first();
     //result 返り値をチェックしてアクションを返す
 
-    //選択肢によってSAN値を加算
-    $user->san = $user->san + $result->add_san;
 
 
     //ターン数を1ずつ増やす
@@ -157,6 +155,9 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         
     //result がある場合
     if(!empty($result)){
+
+        //選択肢によってSAN値を加算
+        $user->san = $user->san + $result->add_san;
 
         $scenes = \App\Models\Scenario::where('scene', $user->scene)
         ->where(function($q) use ($result){
@@ -263,7 +264,8 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             'text'  =>  $error->message
         ]);
 
-
+        $user->san++;
+        $user->save();
     }
 
 
