@@ -136,7 +136,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             $user->scene = 190;
             $user->save();
 
-            $keyboard = Keyboard::make()
+            $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
             ->inline()
             ->row(
                 Keyboard::inlineButton(['text' => 'っ！？', 'callback_data' => "dupeend"])
