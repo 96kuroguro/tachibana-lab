@@ -139,7 +139,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
             $keyboard = \Telegram\Bot\Keyboard\Keyboard::make()
             ->inline()
             ->row(
-                Keyboard::inlineButton(['text' => 'っ！？', 'callback_data' => "dupeend"])
+                \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'っ！？', 'callback_data' => "dupeend"])
             );
 
             Telegram::sendPhoto([
