@@ -156,7 +156,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         }
         
     //result がある場合
-    if($result){
+    if(!empty($result)){
 
         $scenes = \App\Models\Scenario::where('scene', $user->scene)
         ->where(function($q) use ($result){
