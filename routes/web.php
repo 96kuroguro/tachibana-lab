@@ -136,7 +136,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
         不出来なデュープエンド
         */
         //ターン数が一定値を超えたときの処理（シナリオ番号が2桁のときのみ）
-        if($user->turn > 10 && $user->scene < 99){
+        if($user->turn > 30 && $user->scene < 99){
             $user->scene = 190;
             $user->save();
 
