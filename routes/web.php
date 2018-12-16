@@ -110,6 +110,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
         $user = \App\Models\CybotUser::where('from_id', $message->getFrom()->getId())->first();
     }
+    //ルート判定
     $result = \App\Models\CheckReceipt::where('scene', $user->scene)
     ->where('type', $type)
     ->where(function($q) use ($value){
@@ -122,6 +123,9 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     ->orderBy('san', 'desc')
     ->value('return');
     //result 返り値をチェックしてアクションを返す
+
+    //選択肢によってSAN値を加算
+    $user->san = $result->add_san;
 
 
     //ターン数を1ずつ増やす
