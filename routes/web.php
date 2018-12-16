@@ -266,7 +266,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
 
     Telegram::sendMessage([
         'chat_id'  =>  $chatId, 
-        'text'  =>  "ターン：".$user->turn."／SAN値".$user->san
+        'text'  =>  "シーン：".$user->scene."/ターン：".$user->turn."/SAN値".$user->san
     ]);
 
     return response('', 200);
