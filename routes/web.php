@@ -125,7 +125,7 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
     //result 返り値をチェックしてアクションを返す
 
     //選択肢によってSAN値を加算
-    $user->san = $result->add_san;
+    $user->san = $user->san + $result->add_san;
 
 
     //ターン数を1ずつ増やす
