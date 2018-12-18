@@ -144,9 +144,9 @@ Route::post('/'.config('telegram.bots.mybot.token').'/webhook', function () {
                 \Telegram\Bot\Keyboard\Keyboard::inlineButton(['text' => 'っ！？', 'callback_data' => "dupeend"])
             );
 
-            Telegram::sendPhoto([
+            Telegram::sendDocument([
                 'chat_id'  =>  $chatId, 
-                'photo'  =>  asset('img/chisayomoda_bot/provisional.jpg'),
+                'document'  =>  asset('img/chisayomoda_bot/dupes.gif'),
                 'reply_markup' => $keyboard
             ]);
 
